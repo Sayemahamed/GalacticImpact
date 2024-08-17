@@ -6,8 +6,8 @@
   "scripts": {
     "tailwind-dev": "npx tailwindcss -i ./src/input.css -o ./src/output.css --watch",
     "tailwind-build": "npx tailwindcss -i ./src/input.css -o ./src/output.css --minify",
-    "dev": "concurrently \"pnpm run tailwind-dev\" \"vite\"",
-    "build": "pnpm run tailwind-build && tsc -b && vite build",
+    "dev": "concurrently \"npm run tailwind-dev\" \"vite\"",
+    "build": "npm run tailwind-build && tsc -b && vite build",
     "lint": "eslint .",
     "preview": "vite preview"
   },
