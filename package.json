@@ -4,8 +4,10 @@
   "version": "0.0.0",
   "type": "module",
   "scripts": {
-    "dev": "vite",
-    "build": "tsc -b && vite build",
+    "tailwind-dev": "npx tailwindcss -i ./src/input.css -o ./src/output.css --watch",
+    "tailwind-build": "npx tailwindcss -i ./src/input.css -o ./src/output.css --minify",
+    "dev": "concurrently \"pnpm run tailwind-dev\" \"vite\"",
+    "build": "pnpm run tailwind-build && tsc -b && vite build",
     "lint": "eslint .",
     "preview": "vite preview"
   },
@@ -23,6 +25,7 @@
     "eslint-plugin-react-hooks": "^5.1.0-rc.0",
     "eslint-plugin-react-refresh": "^0.4.9",
     "globals": "^15.9.0",
+    "tailwindcss": "^3.4.10",
     "typescript": "^5.5.3",
     "typescript-eslint": "^8.0.1",
     "vite": "^5.4.1"
