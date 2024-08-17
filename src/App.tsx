@@ -1,6 +1,8 @@
 import { useEffect } from "react";
 import * as THREE from "three";
+import { OrbitControls } from "three/examples/jsm/Addons.js";
 import cube from "./models/cube";
+import earth from "./models/earth";
 function App() {
   useEffect(() => {
     const scene = new THREE.Scene();
@@ -10,19 +12,24 @@ function App() {
       0.1,
       1000
     );
-    const renderer = new THREE.WebGLRenderer();
+    camera.position.z = 5;
+    const renderer = new THREE.WebGLRenderer({
+      antialias: true,
+    });
     renderer.setSize(window.innerWidth, window.innerHeight);
     renderer.setAnimationLoop(animate);
     document.body.appendChild(renderer.domElement);
-
-    scene.add(cube);
-
-    camera.position.z = 5;
-
+    new OrbitControls(camera, renderer.domElement);
+    // <-- Add Elements -->
+    // scene.add(cube);
+    scene.add(earth);
+    // <-- Add light Source -->
+    const sunLight = new THREE.DirectionalLight(0xffffff, 2.0);
+    sunLight.position.set(-2, 0.5, 1.5);
+    scene.add(sunLight);
     function animate() {
-      cube.rotation.x += 0.01;
-      cube.rotation.y += 0.01;
-
+      earth.rotation.x += 0.01;
+      earth.rotation.y += 0.01;
       renderer.render(scene, camera);
     }
   }, []);
