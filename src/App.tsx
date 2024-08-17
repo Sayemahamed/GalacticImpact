@@ -1,7 +1,6 @@
 import { useEffect } from "react";
 import * as THREE from "three";
 import { OrbitControls } from "three/examples/jsm/Addons.js";
-import cube from "./models/cube";
 import earth from "./models/earth";
 function App() {
   useEffect(() => {
