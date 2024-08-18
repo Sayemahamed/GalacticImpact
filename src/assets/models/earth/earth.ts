@@ -20,7 +20,7 @@ const lightsMat = new THREE.MeshBasicMaterial({
 const cloudsMat = new THREE.MeshStandardMaterial({
   map: loader.load(earthClouds),
   transparent: true,
-  opacity: 1,
+  opacity: 2,
   blending: THREE.AdditiveBlending,
   alphaMap: loader.load(earthCloudsTrans),
   // alphaTest: 0.3,
