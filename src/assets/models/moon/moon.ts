@@ -1,6 +1,6 @@
 import * as THREE from "three";
 import moonMap from "./moon.jpg";
-import moonBump from "./moonbump2k.jpg";
+import moonBump from "./moonbump1k.jpg";
 
 const loader = new THREE.TextureLoader();
 const geometry = new THREE.IcosahedronGeometry(1, 16);
