@@ -42,7 +42,7 @@ function App() {
     function animate() {
       earth.earthMesh.rotation.y += 0.002;
       earth.lightsMesh.rotation.y += 0.002;
-      earth.cloudsMesh.rotation.y += 0.003;
+      earth.cloudsMesh.rotation.y += 0.0031;
       stars.rotation.y -= 0.0002;
       renderer.render(scene, camera);
     }

@@ -2,7 +2,7 @@ import * as THREE from "three";
 import earthMap from "./earth.jpg";
 import earthBump from "./earthbump1k.jpg";
 import earthSpec from "./earthspec1k.jpg";
-import earthClouds from "./earthcloudmap.jpg";
+import earthClouds from "./cloud.jpg";
 import earthCloudsTrans from "./earthcloudmaptrans.jpg";
 import earthLights from "./earth_light.jpg";
 const loader = new THREE.TextureLoader();
@@ -20,7 +20,7 @@ const lightsMat = new THREE.MeshBasicMaterial({
 const cloudsMat = new THREE.MeshStandardMaterial({
   map: loader.load(earthClouds),
   transparent: true,
-  opacity: 0.4,
+  opacity: 1,
   blending: THREE.AdditiveBlending,
   alphaMap: loader.load(earthCloudsTrans),
   // alphaTest: 0.3,
