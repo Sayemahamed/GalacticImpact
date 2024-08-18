@@ -20,4 +20,4 @@ const fresnelMat = getFresnelMat();
 const glowMesh = new THREE.Mesh(geometry, fresnelMat);
 glowMesh.scale.setScalar(1.03);
 
-export default {sunMesh , glowMesh};
+export default { sunMesh, glowMesh };
