@@ -4,7 +4,7 @@ import { OrbitControls } from "three/examples/jsm/Addons.js";
 import earth from "./assets/models/earth/earth";
 import getStarfield from "./assets/models/stars/stars";
 import moonMesh from "./assets/models/moon/moon";
-import sunMesh from "./assets/models/sun/sun";
+import sun from "./assets/models/sun/sun";
 function App() {
   useEffect(() => {
     const scene = new THREE.Scene();
@@ -29,7 +29,8 @@ function App() {
     //<< Solar System >>
     // << Sun >>
     const solarGroup = new THREE.Group();
-    solarGroup.add(sunMesh);
+    solarGroup.add(sun.sunMesh);
+    solarGroup.add(sun.glowMesh);
 
     //<< Earth Group >>
     const earthGroup = new THREE.Group();
@@ -42,7 +43,8 @@ function App() {
     earthGroup.add(earth.earthMesh);
     earthGroup.add(earth.lightsMesh);
     earthGroup.add(earth.cloudsMesh);
-    earthGroup.position.set(7, 0, 0);
+    earthGroup.add(earth.glowMesh);
+    earthGroup.position.set(10, 0, 0);
     // << Stars >>
     const stars = getStarfield({ numStars: 3000 });
     scene.add(stars);
@@ -56,7 +58,8 @@ function App() {
       moonMesh.rotation.y -= 0.005;
       moonGroup.rotation.y -= 0.01;
       stars.rotation.y -= 0.0002;
-      sunMesh.rotation.y += 0.001;
+      sun.sunMesh.rotation.y += 0.009;
+      solarGroup.rotateY(0.005);
       renderer.render(scene, camera);
     }
     function handleWindowResize() {
