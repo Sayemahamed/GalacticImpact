@@ -16,12 +16,12 @@ function App() {
     const renderer = new THREE.WebGLRenderer({
       antialias: true,
     });
-    renderer.toneMapping = THREE.ACESFilmicToneMapping;
-    renderer.outputColorSpace = THREE.LinearSRGBColorSpace;
     renderer.setSize(window.innerWidth, window.innerHeight);
     renderer.setAnimationLoop(animate);
     document.body.appendChild(renderer.domElement);
     window.addEventListener("resize", handleWindowResize, false);
+    renderer.outputColorSpace = THREE.LinearSRGBColorSpace;
+    renderer.toneMapping = THREE.ACESFilmicToneMapping;
     new OrbitControls(camera, renderer.domElement);
     // <-- Add Elements -->
     //<< Earth Group >>
@@ -42,7 +42,7 @@ function App() {
     function animate() {
       earth.earthMesh.rotation.y += 0.002;
       earth.lightsMesh.rotation.y += 0.002;
-      earth.cloudsMesh.rotation.y += 0.0023;
+      earth.cloudsMesh.rotation.y += 0.003;
       stars.rotation.y -= 0.0002;
       renderer.render(scene, camera);
     }

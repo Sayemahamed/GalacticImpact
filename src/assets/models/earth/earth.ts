@@ -23,10 +23,11 @@ const cloudsMat = new THREE.MeshStandardMaterial({
   opacity: 0.8,
   blending: THREE.AdditiveBlending,
   alphaMap: loader.load(earthCloudsTrans),
-  // alphaTest: 0.3,
+  alphaTest: 0.3,
 });
 const earthMesh = new THREE.Mesh(geometry, material);
 const lightsMesh = new THREE.Mesh(geometry, lightsMat);
 const cloudsMesh = new THREE.Mesh(geometry, cloudsMat);
+cloudsMesh.scale.setScalar(1.003);
 
 export default { earthMesh, cloudsMesh, lightsMesh };
