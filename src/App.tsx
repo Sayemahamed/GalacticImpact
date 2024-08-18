@@ -4,6 +4,7 @@ import { OrbitControls } from "three/examples/jsm/Addons.js";
 import earth from "./assets/models/earth/earth";
 import getStarfield from "./assets/models/stars/stars";
 import moonMesh from "./assets/models/moon/moon";
+import sunMesh from "./assets/models/sun/sun";
 function App() {
   useEffect(() => {
     const scene = new THREE.Scene();
@@ -25,24 +26,29 @@ function App() {
     renderer.toneMapping = THREE.ACESFilmicToneMapping;
     new OrbitControls(camera, renderer.domElement);
     // <-- Add Elements -->
+    //<< Solar System >>
+    // << Sun >>
+    const solarGroup = new THREE.Group();
+    solarGroup.add(sunMesh);
+
     //<< Earth Group >>
     const earthGroup = new THREE.Group();
+    // Moon
     const moonGroup = new THREE.Group();
     moonGroup.add(moonMesh);
     earthGroup.add(moonGroup);
+    // Earth
     earthGroup.rotation.z = (-23.4 * Math.PI) / 180;
     earthGroup.add(earth.earthMesh);
     earthGroup.add(earth.lightsMesh);
     earthGroup.add(earth.cloudsMesh);
-    scene.add(earthGroup);
-    //<< Moon >>
+    earthGroup.position.set(7, 0, 0);
     // << Stars >>
     const stars = getStarfield({ numStars: 3000 });
     scene.add(stars);
+    solarGroup.add(earthGroup);
+    scene.add(solarGroup);
     // <-- Add light Source -->
-    const sunLight = new THREE.DirectionalLight(0xffffff, 2.0);
-    sunLight.position.set(-2, 0.5, 1.5);
-    scene.add(sunLight);
     function animate() {
       earth.earthMesh.rotation.y += 0.002;
       earth.lightsMesh.rotation.y += 0.002;
@@ -50,6 +56,7 @@ function App() {
       moonMesh.rotation.y -= 0.005;
       moonGroup.rotation.y -= 0.01;
       stars.rotation.y -= 0.0002;
+      sunMesh.rotation.y += 0.001;
       renderer.render(scene, camera);
     }
     function handleWindowResize() {
