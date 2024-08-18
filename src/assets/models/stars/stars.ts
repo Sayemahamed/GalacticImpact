@@ -1,5 +1,5 @@
 import * as THREE from "three";
-
+import img from "./circle.png";
 export default function getStarfield({ numStars = 500 } = {}) {
   function randomSpherePoint() {
     const radius = Math.random() * 350 + 40;
@@ -35,7 +35,7 @@ export default function getStarfield({ numStars = 500 } = {}) {
   const mat = new THREE.PointsMaterial({
     size: 0.6,
     vertexColors: true,
-    map: new THREE.TextureLoader().load("src/assets/textures/stars/circle.png"),
+    map: new THREE.TextureLoader().load(img),
   });
   const points = new THREE.Points(geo, mat);
   return points;

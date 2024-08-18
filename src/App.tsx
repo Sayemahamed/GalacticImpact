@@ -1,8 +1,8 @@
 import { useEffect } from "react";
 import * as THREE from "three";
 import { OrbitControls } from "three/examples/jsm/Addons.js";
-import earth from "./models/earth";
-import getStarfield from "./models/stars";
+import earth from "./assets/models/earth/earth";
+import getStarfield from "./assets/models/stars/stars";
 function App() {
   useEffect(() => {
     const scene = new THREE.Scene();
