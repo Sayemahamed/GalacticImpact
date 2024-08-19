@@ -30,9 +30,9 @@ const cloudsMat = new THREE.MeshStandardMaterial({
 const earthMesh = new THREE.Mesh(geometry, material);
 const lightsMesh = new THREE.Mesh(geometry, lightsMat);
 const cloudsMesh = new THREE.Mesh(geometry, cloudsMat);
-cloudsMesh.scale.setScalar(1.02);
+cloudsMesh.scale.setScalar(1.03);
 const fresnelMat = getFresnelMat();
 const glowMesh = new THREE.Mesh(geometry, fresnelMat);
-glowMesh.scale.setScalar(1.015);
+glowMesh.scale.setScalar(1.04);
 
 export default { earthMesh, cloudsMesh, lightsMesh , glowMesh};
