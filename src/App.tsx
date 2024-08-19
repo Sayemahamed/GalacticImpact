@@ -7,6 +7,7 @@ import venusMesh from "./assets/models/venus/venus";
 import marsMesh from "./assets/models/mars/mars";
 import earth from "./assets/models/earth/earth";
 import moonMesh from "./assets/models/moon/moon";
+import jupiterMesh from "./assets/models/jupiter/jupiter";
 import getStarfield from "./assets/models/stars/stars";
 function App() {
   useEffect(() => {
@@ -56,6 +57,9 @@ function App() {
     // << Mars >>
     marsMesh.position.set(-4, 0, 0);
     solarGroup.add(marsMesh);
+    // << Jupiter >>
+    jupiterMesh.position.set(0, 0, 4);
+    solarGroup.add(jupiterMesh);
     // << Stars >>
     const stars = getStarfield({ numStars: 3000 });
     scene.add(stars);
