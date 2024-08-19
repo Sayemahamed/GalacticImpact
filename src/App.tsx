@@ -1,11 +1,13 @@
 import { useEffect } from "react";
 import * as THREE from "three";
 import { OrbitControls } from "three/examples/jsm/Addons.js";
-import earth from "./assets/models/earth/earth";
-import getStarfield from "./assets/models/stars/stars";
-import moonMesh from "./assets/models/moon/moon";
 import sun from "./assets/models/sun/sun";
+import mercuryMesh from "./assets/models/mercury/mercury";
+import venusMesh from "./assets/models/venus/venus";
 import marsMesh from "./assets/models/mars/mars";
+import earth from "./assets/models/earth/earth";
+import moonMesh from "./assets/models/moon/moon";
+import getStarfield from "./assets/models/stars/stars";
 function App() {
   useEffect(() => {
     const scene = new THREE.Scene();
@@ -32,6 +34,12 @@ function App() {
     // << Sun >>
     solarGroup.add(sun.sunMesh);
     solarGroup.add(sun.glowMesh);
+    // << Mercury >>
+    mercuryMesh.position.set(0, 4, 0);
+    solarGroup.add(mercuryMesh);
+    // << Venus >>
+    venusMesh.position.set(0, -4, 0);
+    solarGroup.add(venusMesh);
     // << Mars >>
     marsMesh.position.set(-4, 0, 0);
     solarGroup.add(marsMesh);
