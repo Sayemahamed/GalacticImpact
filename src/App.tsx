@@ -40,9 +40,6 @@ function App() {
     // << Venus >>
     venusMesh.position.set(0, -4, 0);
     solarGroup.add(venusMesh);
-    // << Mars >>
-    marsMesh.position.set(-4, 0, 0);
-    solarGroup.add(marsMesh);
     //<< Earth Group >>
     const earthGroup = new THREE.Group();
     // Moon
@@ -56,6 +53,9 @@ function App() {
     earthGroup.add(earth.cloudsMesh);
     earthGroup.add(earth.glowMesh);
     earthGroup.position.set(10, 0, 0);
+    // << Mars >>
+    marsMesh.position.set(-4, 0, 0);
+    solarGroup.add(marsMesh);
     // << Stars >>
     const stars = getStarfield({ numStars: 3000 });
     scene.add(stars);
