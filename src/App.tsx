@@ -11,6 +11,7 @@ import jupiterMesh from "./assets/models/jupiter/jupiter";
 import saturnMesh from "./assets/models/saturn/saturn";
 import uranusMesh from "./assets/models/uranus/uranus";
 import neptuneMesh from "./assets/models/neptune/neptune";
+import plutoMesh from "./assets/models/pluto/pluto";
 import getStarfield from "./assets/models/stars/stars";
 function App() {
   useEffect(() => {
@@ -73,6 +74,9 @@ function App() {
     // << Neptune >>
     neptuneMesh.position.set(-10, 10, 0);
     solarGroup.add(neptuneMesh);
+    // << Pluto >>
+    plutoMesh.position.set(10, -10, 0);
+    solarGroup.add(plutoMesh);
     // << Stars >>
     const stars = getStarfield({ numStars: 3000 });
     scene.add(stars);
