@@ -8,6 +8,7 @@ import marsMesh from "./assets/models/mars/mars";
 import earth from "./assets/models/earth/earth";
 import moonMesh from "./assets/models/moon/moon";
 import jupiterMesh from "./assets/models/jupiter/jupiter";
+import saturnMesh from "./assets/models/saturn/saturn";
 import getStarfield from "./assets/models/stars/stars";
 function App() {
   useEffect(() => {
@@ -36,10 +37,10 @@ function App() {
     solarGroup.add(sun.sunMesh);
     solarGroup.add(sun.glowMesh);
     // << Mercury >>
-    mercuryMesh.position.set(0, 4, 0);
+    mercuryMesh.position.set(0, 10, 0);
     solarGroup.add(mercuryMesh);
     // << Venus >>
-    venusMesh.position.set(0, -4, 0);
+    venusMesh.position.set(0, -10, 0);
     solarGroup.add(venusMesh);
     //<< Earth Group >>
     const earthGroup = new THREE.Group();
@@ -54,16 +55,19 @@ function App() {
     earthGroup.add(earth.cloudsMesh);
     earthGroup.add(earth.glowMesh);
     earthGroup.position.set(10, 0, 0);
+    solarGroup.add(earthGroup);
     // << Mars >>
-    marsMesh.position.set(-4, 0, 0);
+    marsMesh.position.set(-10, 0, 0);
     solarGroup.add(marsMesh);
     // << Jupiter >>
-    jupiterMesh.position.set(0, 0, 4);
+    jupiterMesh.position.set(0, 0, 10);
     solarGroup.add(jupiterMesh);
+    // << Saturn >>
+    saturnMesh.position.set(0, 0, -10);
+    solarGroup.add(saturnMesh);
     // << Stars >>
     const stars = getStarfield({ numStars: 3000 });
     scene.add(stars);
-    solarGroup.add(earthGroup);
     scene.add(solarGroup);
     // <-- Add light Source -->
     function animate() {
