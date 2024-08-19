@@ -14,7 +14,7 @@ const material = new THREE.MeshPhongMaterial({
 
 //lights
 
-const sunMesh = new THREE.PointLight(0xffffff, 400);
+const sunMesh = new THREE.PointLight(0xffffff, 600);
 sunMesh.add(new THREE.Mesh(geometry, material));
 const fresnelMat = getFresnelMat();
 const glowMesh = new THREE.Mesh(geometry, fresnelMat);
