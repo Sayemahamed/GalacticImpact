@@ -9,6 +9,7 @@ import earth from "./assets/models/earth/earth";
 import moonMesh from "./assets/models/moon/moon";
 import jupiterMesh from "./assets/models/jupiter/jupiter";
 import saturnMesh from "./assets/models/saturn/saturn";
+import uranausMesh from "./assets/models/uranus/uranus";
 import getStarfield from "./assets/models/stars/stars";
 function App() {
   useEffect(() => {
@@ -65,6 +66,9 @@ function App() {
     // << Saturn >>
     saturnMesh.position.set(0, 0, -10);
     solarGroup.add(saturnMesh);
+    // << Uranaus >>
+    uranausMesh.position.set(10, 10, 0);
+    solarGroup.add(uranausMesh);
     // << Stars >>
     const stars = getStarfield({ numStars: 3000 });
     scene.add(stars);
