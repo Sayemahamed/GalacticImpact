@@ -13,7 +13,7 @@ const material = new THREE.MeshPhongMaterial({
   map: loader.load(earthMap),
   specularMap: loader.load(earthSpec),
   bumpMap: loader.load(earthBump),
-  bumpScale: 0.04,
+  bumpScale: 1,
 });
 const lightsMat = new THREE.MeshBasicMaterial({
   map: loader.load(earthLights),
@@ -35,4 +35,4 @@ const fresnelMat = getFresnelMat();
 const glowMesh = new THREE.Mesh(geometry, fresnelMat);
 glowMesh.scale.setScalar(1.04);
 
-export default { earthMesh, cloudsMesh, lightsMesh , glowMesh};
+export default { earthMesh, cloudsMesh, lightsMesh, glowMesh };

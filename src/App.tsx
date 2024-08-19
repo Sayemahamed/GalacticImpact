@@ -5,6 +5,7 @@ import earth from "./assets/models/earth/earth";
 import getStarfield from "./assets/models/stars/stars";
 import moonMesh from "./assets/models/moon/moon";
 import sun from "./assets/models/sun/sun";
+import marsMesh from "./assets/models/mars/mars";
 function App() {
   useEffect(() => {
     const scene = new THREE.Scene();
@@ -27,11 +28,13 @@ function App() {
     new OrbitControls(camera, renderer.domElement);
     // <-- Add Elements -->
     //<< Solar System >>
-    // << Sun >>
     const solarGroup = new THREE.Group();
+    // << Sun >>
     solarGroup.add(sun.sunMesh);
     solarGroup.add(sun.glowMesh);
-
+    // << Mars >>
+    marsMesh.position.set(-4, 0, 0);
+    solarGroup.add(marsMesh);
     //<< Earth Group >>
     const earthGroup = new THREE.Group();
     // Moon
