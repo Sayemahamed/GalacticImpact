@@ -2,16 +2,16 @@ import { useEffect } from "react";
 import * as THREE from "three";
 import { OrbitControls } from "three/examples/jsm/Addons.js";
 import sun from "./assets/models/sun/sun";
-import mercuryMesh from "./assets/models/mercury/mercury";
-import venusMesh from "./assets/models/venus/venus";
-import marsMesh from "./assets/models/mars/mars";
+// import mercuryMesh from "./assets/models/mercury/mercury";
+// import venusMesh from "./assets/models/venus/venus";
+// import marsMesh from "./assets/models/mars/mars";
 import earth from "./assets/models/earth/earth";
-import moonMesh from "./assets/models/moon/moon";
-import jupiterMesh from "./assets/models/jupiter/jupiter";
-import saturnMesh from "./assets/models/saturn/saturn";
-import uranusMesh from "./assets/models/uranus/uranus";
-import neptuneMesh from "./assets/models/neptune/neptune";
-import plutoMesh from "./assets/models/pluto/pluto";
+// import moonMesh from "./assets/models/moon/moon";
+// import jupiterMesh from "./assets/models/jupiter/jupiter";
+// import saturnMesh from "./assets/models/saturn/saturn";
+// import uranusMesh from "./assets/models/uranus/uranus";
+// import neptuneMesh from "./assets/models/neptune/neptune";
+// import plutoMesh from "./assets/models/pluto/pluto";
 import getStarfield from "./assets/models/stars/stars";
 function App() {
   useEffect(() => {
@@ -54,7 +54,7 @@ function App() {
     // << Neptune >>
     // << Pluto >>
     // << Stars >>
-    const stars = getStarfield({ numStars: 3000 });
+    const stars = getStarfield({ numStars: 5000 });
     scene.add(stars);
     scene.add(solarSystem);
     // <-- Add light Source -->

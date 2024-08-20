@@ -23,7 +23,7 @@ const sun = new THREE.Group();
 sun.add(sunMesh);
 sun.add(glowMesh);
 const update = () => {
-  sun.rotation.y += 0.002;
+  sun.rotation.y -= 0.002;
 };
 sun.scale.setScalar(20);
 export default { sun, update };
