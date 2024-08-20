@@ -22,7 +22,7 @@ function App() {
       0.1,
       1000
     );
-    camera.position.z = 5;
+    camera.position.z = 35;
     const renderer = new THREE.WebGLRenderer({
       antialias: true,
     });
@@ -35,62 +35,33 @@ function App() {
     new OrbitControls(camera, renderer.domElement);
     // <-- Add Elements -->
     //<< Solar System >>
-    const solarGroup = new THREE.Group();
+    const solarSystem = new THREE.Group();
     // << Sun >>
-    solarGroup.add(sun.sunMesh);
-    solarGroup.add(sun.glowMesh);
+    solarSystem.add(sun.sun);
     // << Mercury >>
-    mercuryMesh.position.set(0, 10, 0);
-    solarGroup.add(mercuryMesh);
     // << Venus >>
-    venusMesh.position.set(0, -10, 0);
-    solarGroup.add(venusMesh);
     //<< Earth Group >>
-    const earthGroup = new THREE.Group();
+    const earthAxis = new THREE.Group();
+    earth.earthGroup.position.set(50, 0, 0);
+    earthAxis.add(earth.earthGroup);
+    solarSystem.add(earthAxis);
     // Moon
-    const moonGroup = new THREE.Group();
-    moonGroup.add(moonMesh);
-    earthGroup.add(moonGroup);
     // Earth
-    earthGroup.rotation.z = (-23.4 * Math.PI) / 180;
-    earthGroup.add(earth.earthMesh);
-    earthGroup.add(earth.lightsMesh);
-    earthGroup.add(earth.cloudsMesh);
-    earthGroup.add(earth.glowMesh);
-    earthGroup.position.set(10, 0, 0);
-    solarGroup.add(earthGroup);
     // << Mars >>
-    marsMesh.position.set(-10, 0, 0);
-    solarGroup.add(marsMesh);
     // << Jupiter >>
-    jupiterMesh.position.set(0, 0, 10);
-    solarGroup.add(jupiterMesh);
     // << Saturn >>
-    saturnMesh.position.set(0, 0, -10);
-    solarGroup.add(saturnMesh);
     // << Uranus >>
-    uranusMesh.position.set(10, 10, 0);
-    solarGroup.add(uranusMesh);
     // << Neptune >>
-    neptuneMesh.position.set(-10, 10, 0);
-    solarGroup.add(neptuneMesh);
     // << Pluto >>
-    plutoMesh.position.set(10, -10, 0);
-    solarGroup.add(plutoMesh);
     // << Stars >>
     const stars = getStarfield({ numStars: 3000 });
     scene.add(stars);
-    scene.add(solarGroup);
+    scene.add(solarSystem);
     // <-- Add light Source -->
     function animate() {
-      earth.earthMesh.rotation.y += 0.002;
-      earth.lightsMesh.rotation.y += 0.002;
-      earth.cloudsMesh.rotation.y += 0.0031;
-      moonMesh.rotation.y -= 0.005;
-      moonGroup.rotation.y -= 0.01;
-      stars.rotation.y -= 0.0002;
-      sun.sunMesh.rotation.y += 0.009;
-      solarGroup.rotateY(0.005);
+      earth.update();
+      earthAxis.rotation.y += 0.002;
+      sun.update();
       renderer.render(scene, camera);
     }
     function handleWindowResize() {

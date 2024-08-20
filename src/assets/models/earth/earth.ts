@@ -1,5 +1,6 @@
 import * as THREE from "three";
 import { getFresnelMat } from "./getFresnelMat";
+import moonMesh from "../moon/moon";
 
 import earthMap from "./earth.jpg";
 import earthBump from "./earthbump1k.jpg";
@@ -35,4 +36,21 @@ const fresnelMat = getFresnelMat();
 const glowMesh = new THREE.Mesh(geometry, fresnelMat);
 glowMesh.scale.setScalar(1.04);
 
-export default { earthMesh, cloudsMesh, lightsMesh, glowMesh };
+const earthGroup = new THREE.Group();
+earthGroup.add(earthMesh);
+earthGroup.add(lightsMesh);
+earthGroup.add(cloudsMesh);
+earthGroup.add(glowMesh);
+const moonAxis = new THREE.Group();
+moonAxis.add(moonMesh);
+earthGroup.add(moonAxis);
+const update = () => {
+  earthMesh.rotation.y += 0.002;
+  lightsMesh.rotation.y += 0.002;
+  cloudsMesh.rotation.y += 0.0031;
+  moonMesh.rotation.y += 0.001;
+  moonAxis.rotation.y += 0.004;
+};
+earthGroup.rotation.z = (-23.4 * Math.PI) / 180;
+
+export default { earthGroup, update };

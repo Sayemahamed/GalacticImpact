@@ -14,10 +14,16 @@ const material = new THREE.MeshPhongMaterial({
 
 //lights
 
-const sunMesh = new THREE.PointLight(0xffffff, 600);
+const sunMesh = new THREE.PointLight(0xffffff, 9000);
 sunMesh.add(new THREE.Mesh(geometry, material));
 const fresnelMat = getFresnelMat();
 const glowMesh = new THREE.Mesh(geometry, fresnelMat);
 glowMesh.scale.setScalar(1.01);
-
-export default { sunMesh, glowMesh };
+const sun = new THREE.Group();
+sun.add(sunMesh);
+sun.add(glowMesh);
+const update = () => {
+  sun.rotation.y += 0.002;
+};
+sun.scale.setScalar(20);
+export default { sun, update };
