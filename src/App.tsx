@@ -2,17 +2,18 @@ import { useEffect } from "react";
 import * as THREE from "three";
 import { OrbitControls } from "three/examples/jsm/Addons.js";
 import sun from "./assets/models/sun/sun";
-// import mercuryMesh from "./assets/models/mercury/mercury";
-// import venusMesh from "./assets/models/venus/venus";
-// import marsMesh from "./assets/models/mars/mars";
+
+import mercuryMesh from "./assets/models/mercury/mercury";
+import venusMesh from "./assets/models/venus/venus";
+import marsMesh from "./assets/models/mars/mars";
 import earth from "./assets/models/earth/earth";
-// import moonMesh from "./assets/models/moon/moon";
-// import jupiterMesh from "./assets/models/jupiter/jupiter";
-// import saturnMesh from "./assets/models/saturn/saturn";
-// import uranusMesh from "./assets/models/uranus/uranus";
-// import neptuneMesh from "./assets/models/neptune/neptune";
-// import plutoMesh from "./assets/models/pluto/pluto";
+import jupiterMesh from "./assets/models/jupiter/jupiter";
+import saturnMesh from "./assets/models/saturn/saturn";
+import uranusMesh from "./assets/models/uranus/uranus";
+import neptuneMesh from "./assets/models/neptune/neptune";
+import plutoMesh from "./assets/models/pluto/pluto";
 import getStarfield from "./assets/models/stars/stars";
+import { earthDistance } from "./assets/Math/Constants";
 function App() {
   useEffect(() => {
     const scene = new THREE.Scene();
@@ -39,29 +40,59 @@ function App() {
     // << Sun >>
     solarSystem.add(sun.sun);
     // << Mercury >>
+    const mercuryAxis = new THREE.Group();
+    mercuryMesh.position.set(earthDistance * 0.5+10, 0, 0);
+    mercuryAxis.add(mercuryMesh);
+    solarSystem.add(mercuryAxis);
     // << Venus >>
-    //<< Earth Group >>
+    const venusAxis = new THREE.Group();
+    venusMesh.position.set(earthDistance * 1, 0, 0);
+    venusAxis.add(venusMesh);
+    solarSystem.add(venusAxis);
+    //<< Earth >>
     const earthAxis = new THREE.Group();
-    earth.earthGroup.position.set(50, 0, 0);
+    earth.earthGroup.position.set(earthDistance * 1.5, 0, 0);
     earthAxis.add(earth.earthGroup);
     solarSystem.add(earthAxis);
-    // Moon
-    // Earth
     // << Mars >>
+    const marsAxis = new THREE.Group();
+    marsMesh.position.set(earthDistance * 2, 0, 0);
+    marsAxis.add(marsMesh);
+    solarSystem.add(marsAxis);
     // << Jupiter >>
+    const jupiterAxis = new THREE.Group();
+    jupiterMesh.position.set(earthDistance * 3, 0, 0);
+    jupiterAxis.add(jupiterMesh);
+    solarSystem.add(jupiterAxis);
     // << Saturn >>
+    const saturnAxis = new THREE.Group();
+    saturnMesh.position.set(earthDistance * 4, 0, 0);
+    saturnAxis.add(saturnMesh);
+    solarSystem.add(saturnAxis);
     // << Uranus >>
+    const uranusAxis = new THREE.Group();
+    uranusMesh.position.set(earthDistance * 5.5, 0, 0);
+    uranusAxis.add(uranusMesh);
+    solarSystem.add(uranusAxis);
     // << Neptune >>
+    const neptuneAxis = new THREE.Group();
+    neptuneMesh.position.set(earthDistance * 7, 0, 0);
+    neptuneAxis.add(neptuneMesh);
+    solarSystem.add(neptuneAxis);
     // << Pluto >>
+    const plutoAxis = new THREE.Group();
+    plutoMesh.position.set(earthDistance * 7.5, 0, 0);
+    plutoAxis.add(plutoMesh);
+    solarSystem.add(plutoAxis);
     // << Stars >>
     const stars = getStarfield({ numStars: 5000 });
     scene.add(stars);
     scene.add(solarSystem);
     // <-- Add light Source -->
     function animate() {
-      earth.update();
-      earthAxis.rotation.y += 0.002;
-      sun.update();
+      // earth.update();
+      // earthAxis.rotation.y += 0.002;
+      // sun.update();
       renderer.render(scene, camera);
     }
     function handleWindowResize() {

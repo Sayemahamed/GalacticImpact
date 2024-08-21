@@ -1,6 +1,8 @@
 import * as THREE from "three";
 import { getFresnelMat } from "./getFresnelMat";
+
 import moonMesh from "../moon/moon";
+import { earthSize } from "../../Math/Constants";
 
 import earthMap from "./earth.jpg";
 import earthBump from "./earthbump1k.jpg";
@@ -41,6 +43,7 @@ earthGroup.add(earthMesh);
 earthGroup.add(lightsMesh);
 earthGroup.add(cloudsMesh);
 earthGroup.add(glowMesh);
+earthGroup.scale.setScalar(earthSize);
 const moonAxis = new THREE.Group();
 moonAxis.add(moonMesh);
 earthGroup.add(moonAxis);
