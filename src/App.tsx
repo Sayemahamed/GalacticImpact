@@ -5,8 +5,9 @@ import sun from "./assets/models/sun/sun";
 
 import mercuryMesh from "./assets/models/mercury/mercury";
 import venusMesh from "./assets/models/venus/venus";
-import marsMesh from "./assets/models/mars/mars";
 import earth from "./assets/models/earth/earth";
+import marsMesh from "./assets/models/mars/mars";
+import getAsteroidBelt from "./assets/models/astroaids/getAsteroidBelt";
 import jupiterMesh from "./assets/models/jupiter/jupiter";
 import saturnMesh from "./assets/models/saturn/saturn";
 import uranusMesh from "./assets/models/uranus/uranus";
@@ -41,7 +42,7 @@ function App() {
     solarSystem.add(sun.sun);
     // << Mercury >>
     const mercuryAxis = new THREE.Group();
-    mercuryMesh.position.set(earthDistance * 0.5+5, 0, 0);
+    mercuryMesh.position.set(earthDistance * 0.5 + 5, 0, 0);
     mercuryAxis.add(mercuryMesh);
     solarSystem.add(mercuryAxis);
     // << Venus >>
@@ -59,6 +60,9 @@ function App() {
     marsMesh.position.set(earthDistance * 2, 0, 0);
     marsAxis.add(marsMesh);
     solarSystem.add(marsAxis);
+    //<< astroid belt >>
+    // const astroidBelt = getAsteroidBelt();
+    // solarSystem.add(astroidBelt);
     // << Jupiter >>
     const jupiterAxis = new THREE.Group();
     jupiterMesh.position.set(earthDistance * 3, 0, 0);
