@@ -41,7 +41,7 @@ function App() {
     solarSystem.add(sun.sun);
     // << Mercury >>
     const mercuryAxis = new THREE.Group();
-    mercuryMesh.position.set(earthDistance * 0.5+10, 0, 0);
+    mercuryMesh.position.set(earthDistance * 0.5+5, 0, 0);
     mercuryAxis.add(mercuryMesh);
     solarSystem.add(mercuryAxis);
     // << Venus >>
