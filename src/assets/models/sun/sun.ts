@@ -19,7 +19,7 @@ const sunMesh = new THREE.PointLight(0xffffff, 10, 500, 0.2);
 sunMesh.add(new THREE.Mesh(geometry, material));
 const fresnelMat = getFresnelMat();
 const glowMesh = new THREE.Mesh(geometry, fresnelMat);
-glowMesh.scale.setScalar(1.005);
+glowMesh.scale.setScalar(1.002);
 const sun = new THREE.Group();
 sun.add(sunMesh);
 sun.add(glowMesh);
