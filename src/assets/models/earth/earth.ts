@@ -43,6 +43,7 @@ earthGroup.add(earthMesh);
 earthGroup.add(lightsMesh);
 earthGroup.add(cloudsMesh);
 earthGroup.add(glowMesh);
+earthGroup.name = "Earth";
 earthGroup.scale.setScalar(earthSize);
 const moonAxis = new THREE.Group();
 moonAxis.add(moonMesh);

@@ -61,8 +61,8 @@ function App() {
     marsAxis.add(marsMesh);
     solarSystem.add(marsAxis);
     //<< astroid belt >>
-    // const astroidBelt = getAsteroidBelt();
-    // solarSystem.add(astroidBelt);
+    const astroidBelt = getAsteroidBelt();
+    solarSystem.add(astroidBelt);
     // << Jupiter >>
     const jupiterAxis = new THREE.Group();
     jupiterMesh.position.set(earthDistance * 3, 0, 0);
@@ -104,6 +104,30 @@ function App() {
       camera.updateProjectionMatrix();
       renderer.setSize(window.innerWidth, window.innerHeight);
     }
+    const raycaster = new THREE.Raycaster();
+const mouse = new THREE.Vector2();
+
+// Listen for mouse clicks
+window.addEventListener('click', onMouseClick);
+
+function onMouseClick(event: MouseEvent) {
+    // Calculate normalized device coordinates
+    mouse.x = (event.clientX / window.innerWidth) * 2 - 1;
+    mouse.y = -(event.clientY / window.innerHeight) * 2 + 1;
+
+    // Update the picking ray
+    raycaster.setFromCamera(mouse, camera);
+
+    // Find intersected objects
+    const intersects = raycaster.intersectObjects(scene.children);
+
+    if (intersects.length > 0) {
+        // An object was clicked
+        const clickedObject = intersects[0].object;
+        console.log('Clicked object:', clickedObject);
+        // Add your custom logic here
+    }
+}
   }, []);
   return <></>;
 }
