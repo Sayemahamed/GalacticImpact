@@ -11,7 +11,7 @@ import earthClouds from "./cloud.jpg";
 import earthCloudsTrans from "./earthcloudmaptrans.jpg";
 import earthLights from "./earth_light.jpg";
 const loader = new THREE.TextureLoader();
-const geometry = new THREE.IcosahedronGeometry(1, 16);
+const geometry = new THREE.IcosahedronGeometry(1, 10);
 const material = new THREE.MeshPhongMaterial({
   map: loader.load(earthMap),
   specularMap: loader.load(earthSpec),

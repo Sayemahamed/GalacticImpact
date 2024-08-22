@@ -2,7 +2,7 @@ import * as THREE from "three";
 import jupiterMap from "./jupiter.jpg";
 import { earthSize } from "../../Math/Constants";
 const loader = new THREE.TextureLoader();
-const geometry = new THREE.IcosahedronGeometry(1, 16);
+const geometry = new THREE.IcosahedronGeometry(1, 10);
 const material = new THREE.MeshPhongMaterial({
   map: loader.load(jupiterMap),
 });

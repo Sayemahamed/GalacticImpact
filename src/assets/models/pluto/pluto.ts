@@ -4,7 +4,7 @@ import plutoBump from "./plutobump1k.jpg";
 import { earthSize } from "../../Math/Constants";
 
 const loader = new THREE.TextureLoader();
-const geometry = new THREE.IcosahedronGeometry(1, 16);
+const geometry = new THREE.IcosahedronGeometry(1, 10);
 const material = new THREE.MeshPhongMaterial({
   map: loader.load(plutoMap),
   bumpMap: loader.load(plutoBump),
