@@ -15,6 +15,7 @@ import neptuneMesh from "./assets/models/neptune/neptune";
 import plutoMesh from "./assets/models/pluto/pluto";
 import getStarfield from "./assets/models/stars/stars";
 import { earthDistance } from "./assets/Math/Constants";
+import moonMesh from "./assets/models/moon/moon";
 function App() {
   useEffect(() => {
     const scene = new THREE.Scene();
@@ -24,7 +25,7 @@ function App() {
       0.1,
       1000
     );
-    camera.position.z = 5;
+    camera.position.z = 35;
     const renderer = new THREE.WebGLRenderer({
       antialias: true,
     });
@@ -61,7 +62,7 @@ function App() {
     marsAxis.add(marsMesh);
     solarSystem.add(marsAxis);
     //<< astroid belt >>
-    const astroidBelt = getAsteroidBelt();
+    const astroidBelt = getAsteroidBelt([moonMesh]);
     solarSystem.add(astroidBelt);
     // << Jupiter >>
     const jupiterAxis = new THREE.Group();
@@ -105,29 +106,29 @@ function App() {
       renderer.setSize(window.innerWidth, window.innerHeight);
     }
     const raycaster = new THREE.Raycaster();
-const mouse = new THREE.Vector2();
+    const mouse = new THREE.Vector2();
 
-// Listen for mouse clicks
-window.addEventListener('click', onMouseClick);
+    // Listen for mouse clicks
+    window.addEventListener("click", onMouseClick);
 
-function onMouseClick(event: MouseEvent) {
-    // Calculate normalized device coordinates
-    mouse.x = (event.clientX / window.innerWidth) * 2 - 1;
-    mouse.y = -(event.clientY / window.innerHeight) * 2 + 1;
+    function onMouseClick(event: MouseEvent) {
+      // Calculate normalized device coordinates
+      mouse.x = (event.clientX / window.innerWidth) * 2 - 1;
+      mouse.y = -(event.clientY / window.innerHeight) * 2 + 1;
 
-    // Update the picking ray
-    raycaster.setFromCamera(mouse, camera);
+      // Update the picking ray
+      raycaster.setFromCamera(mouse, camera);
 
-    // Find intersected objects
-    const intersects = raycaster.intersectObjects(scene.children);
+      // Find intersected objects
+      const intersects = raycaster.intersectObjects(scene.children);
 
-    if (intersects.length > 0) {
+      if (intersects.length > 0) {
         // An object was clicked
         const clickedObject = intersects[0].object;
-        console.log('Clicked object:', clickedObject);
+        console.log("Clicked object:", clickedObject);
         // Add your custom logic here
+      }
     }
-}
   }, []);
   return <></>;
 }
