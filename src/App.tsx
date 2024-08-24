@@ -61,8 +61,8 @@ function App() {
     marsAxis.add(marsMesh);
     solarSystem.add(marsAxis);
     //<< astroid belt >>
-    const astroidBelt = getAsteroidBelt();
-    solarSystem.add(astroidBelt);
+    const astroidBelt1 = getAsteroidBelt(earthDistance * 2.3);
+    solarSystem.add(astroidBelt1);
     // << Jupiter >>
     const jupiterAxis = new THREE.Group();
     jupiterMesh.position.set(earthDistance * 3.5, 0, 0);
@@ -88,11 +88,13 @@ function App() {
     plutoMesh.position.set(earthDistance * 8, 0, 0);
     plutoAxis.add(plutoMesh);
     solarSystem.add(plutoAxis);
+    // << Second Asteroid Belt >>
+    // const astroidBelt2 = getAsteroidBelt(earthDistance * 7.5);
+    // solarSystem.add(astroidBelt2);
     // << Stars >>
     const stars = getStarfield({ numStars: 5000 });
     scene.add(stars);
     scene.add(solarSystem);
-    // <-- Add light Source -->
     function animate() {
       // earth.update();
       // earthAxis.rotation.y += 0.002;
