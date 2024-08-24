@@ -24,7 +24,7 @@ function App() {
       0.1,
       1000
     );
-    camera.position.z = 35;
+    camera.position.z = earthDistance * 2.5;
     const renderer = new THREE.WebGLRenderer({
       antialias: true,
     });
@@ -56,7 +56,7 @@ function App() {
     const earthAxis = new THREE.Group();
     earth.earthGroup.position.set(earthDistance * 1.5, 0, 0);
     earthAxis.add(earth.earthGroup);
-    earthAxis.rotateY(2 * Math.PI * 0.4);
+    earthAxis.rotateY(2 * Math.PI * 0.7);
     solarSystem.add(earthAxis);
     // << Mars >>
     const marsAxis = new THREE.Group();
