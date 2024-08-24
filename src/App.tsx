@@ -44,21 +44,25 @@ function App() {
     const mercuryAxis = new THREE.Group();
     mercuryMesh.position.set(earthDistance * 0.5 + 5, 0, 0);
     mercuryAxis.add(mercuryMesh);
+    mercuryAxis.rotateY(2 * Math.PI * 0.1);
     solarSystem.add(mercuryAxis);
     // << Vnus >>
     const venusAxis = new THREE.Group();
     venusMesh.position.set(earthDistance * 1, 0, 0);
     venusAxis.add(venusMesh);
+    venusAxis.rotateY(2 * Math.PI * 0.3);
     solarSystem.add(venusAxis);
     //<< Earth >>
     const earthAxis = new THREE.Group();
     earth.earthGroup.position.set(earthDistance * 1.5, 0, 0);
     earthAxis.add(earth.earthGroup);
+    earthAxis.rotateY(2 * Math.PI * 0.4);
     solarSystem.add(earthAxis);
     // << Mars >>
     const marsAxis = new THREE.Group();
     marsMesh.position.set(earthDistance * 2, 0, 0);
     marsAxis.add(marsMesh);
+    marsAxis.rotateY(2 * Math.PI * 0.6);
     solarSystem.add(marsAxis);
     //<< astroid belt >>
     const astroidBelt1 = getAsteroidBelt(earthDistance * 2.3);
@@ -67,21 +71,25 @@ function App() {
     const jupiterAxis = new THREE.Group();
     jupiterMesh.position.set(earthDistance * 3.5, 0, 0);
     jupiterAxis.add(jupiterMesh);
+    jupiterAxis.rotateY(2 * Math.PI * 0.7);
     solarSystem.add(jupiterAxis);
     // << Saturn >>
     const saturnAxis = new THREE.Group();
     saturnMesh.position.set(earthDistance * 4.5, 0, 0);
     saturnAxis.add(saturnMesh);
+    saturnAxis.rotateY(2 * Math.PI * 0.8);
     solarSystem.add(saturnAxis);
     // << Uranus >>
     const uranusAxis = new THREE.Group();
     uranusMesh.position.set(earthDistance * 6, 0, 0);
     uranusAxis.add(uranusMesh);
+    uranusAxis.rotateY(2 * Math.PI * 0.9);
     solarSystem.add(uranusAxis);
     // << Neptune >>
     const neptuneAxis = new THREE.Group();
     neptuneMesh.position.set(earthDistance * 7.5, 0, 0);
     neptuneAxis.add(neptuneMesh);
+    neptuneAxis.rotateY(2 * Math.PI);
     solarSystem.add(neptuneAxis);
     // << Pluto >>
     const plutoAxis = new THREE.Group();
@@ -98,7 +106,7 @@ function App() {
     function animate() {
       // earth.update();
       // earthAxis.rotation.y += 0.002;
-      // sun.update();
+      sun.update();
       renderer.render(scene, camera);
     }
     function handleWindowResize() {
