@@ -24,7 +24,7 @@ function App() {
       0.1,
       1000
     );
-    camera.position.z = earthDistance * 2.5;
+    camera.position.z = earthDistance * 3;
     const renderer = new THREE.WebGLRenderer({
       antialias: true,
     });
