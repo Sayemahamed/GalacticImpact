@@ -1,6 +1,6 @@
 import * as THREE from "three";
 import jupiterMap from "./jupiter.jpg";
-import { earthSize } from "../../Math/Constants";
+import { earthRotation, earthSize } from "../../Math/Constants";
 const loader = new THREE.TextureLoader();
 const geometry = new THREE.IcosahedronGeometry(1, 10);
 const material = new THREE.MeshPhongMaterial({
@@ -8,4 +8,7 @@ const material = new THREE.MeshPhongMaterial({
 });
 const jupiterMesh = new THREE.Mesh(geometry, material);
 jupiterMesh.scale.setScalar(earthSize * 11);
-export default jupiterMesh;
+const update = () => {
+  jupiterMesh.rotation.y += earthRotation * (24 / 9.5);
+};
+export default { jupiterMesh, update };

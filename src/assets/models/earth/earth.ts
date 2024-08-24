@@ -2,7 +2,11 @@ import * as THREE from "three";
 import { getFresnelMat } from "./getFresnelMat";
 
 import moonMesh from "../moon/moon";
-import { earthSize } from "../../Math/Constants";
+import {
+  earthCirculation,
+  earthRotation,
+  earthSize,
+} from "../../Math/Constants";
 
 import earthMap from "./earth.jpg";
 import earthBump from "./earthbump1k.jpg";
@@ -49,11 +53,11 @@ const moonAxis = new THREE.Group();
 moonAxis.add(moonMesh);
 earthGroup.add(moonAxis);
 const update = () => {
-  earthMesh.rotation.y += 0.002;
-  lightsMesh.rotation.y += 0.002;
-  cloudsMesh.rotation.y += 0.0031;
-  moonMesh.rotation.y += 0.001;
-  moonAxis.rotation.y += 0.004;
+  earthMesh.rotation.y += earthRotation;
+  lightsMesh.rotation.y += earthRotation;
+  cloudsMesh.rotation.y += earthRotation * 1.03;
+  moonMesh.rotation.y += (earthCirculation * 24) / 21;
+  moonAxis.rotation.y += (earthCirculation * 365) / 28;
 };
 earthGroup.rotation.z = (-23.4 * Math.PI) / 180;
 

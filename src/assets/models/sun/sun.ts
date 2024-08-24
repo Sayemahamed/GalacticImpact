@@ -1,7 +1,7 @@
 import * as THREE from "three";
 import sunMap from "./sun.jpg";
 import { getFresnelMat } from "./getFresnelMat";
-import { sunSize } from "../../Math/Constants";
+import { earthRotation, sunSize } from "../../Math/Constants";
 
 const loader = new THREE.TextureLoader();
 const geometry = new THREE.IcosahedronGeometry(1, 12);
@@ -24,7 +24,7 @@ const sun = new THREE.Group();
 sun.add(sunMesh);
 sun.add(glowMesh);
 const update = () => {
-  sun.rotation.y -= 0.002;
+  sun.rotation.y += earthRotation * (24 / 25);
 };
 sun.scale.setScalar(sunSize);
 export default { sun, update };
