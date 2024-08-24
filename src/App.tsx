@@ -15,7 +15,6 @@ import neptuneMesh from "./assets/models/neptune/neptune";
 import plutoMesh from "./assets/models/pluto/pluto";
 import getStarfield from "./assets/models/stars/stars";
 import { earthDistance } from "./assets/Math/Constants";
-import moonMesh from "./assets/models/moon/moon";
 function App() {
   useEffect(() => {
     const scene = new THREE.Scene();
@@ -46,7 +45,7 @@ function App() {
     mercuryMesh.position.set(earthDistance * 0.5 + 5, 0, 0);
     mercuryAxis.add(mercuryMesh);
     solarSystem.add(mercuryAxis);
-    // << Venus >>
+    // << Vnus >>
     const venusAxis = new THREE.Group();
     venusMesh.position.set(earthDistance * 1, 0, 0);
     venusAxis.add(venusMesh);
@@ -62,31 +61,31 @@ function App() {
     marsAxis.add(marsMesh);
     solarSystem.add(marsAxis);
     //<< astroid belt >>
-    const astroidBelt = getAsteroidBelt([moonMesh]);
+    const astroidBelt = getAsteroidBelt();
     solarSystem.add(astroidBelt);
     // << Jupiter >>
     const jupiterAxis = new THREE.Group();
-    jupiterMesh.position.set(earthDistance * 3, 0, 0);
+    jupiterMesh.position.set(earthDistance * 3.5, 0, 0);
     jupiterAxis.add(jupiterMesh);
     solarSystem.add(jupiterAxis);
     // << Saturn >>
     const saturnAxis = new THREE.Group();
-    saturnMesh.position.set(earthDistance * 4, 0, 0);
+    saturnMesh.position.set(earthDistance * 4.5, 0, 0);
     saturnAxis.add(saturnMesh);
     solarSystem.add(saturnAxis);
     // << Uranus >>
     const uranusAxis = new THREE.Group();
-    uranusMesh.position.set(earthDistance * 5.5, 0, 0);
+    uranusMesh.position.set(earthDistance * 6, 0, 0);
     uranusAxis.add(uranusMesh);
     solarSystem.add(uranusAxis);
     // << Neptune >>
     const neptuneAxis = new THREE.Group();
-    neptuneMesh.position.set(earthDistance * 7, 0, 0);
+    neptuneMesh.position.set(earthDistance * 7.5, 0, 0);
     neptuneAxis.add(neptuneMesh);
     solarSystem.add(neptuneAxis);
     // << Pluto >>
     const plutoAxis = new THREE.Group();
-    plutoMesh.position.set(earthDistance * 7.5, 0, 0);
+    plutoMesh.position.set(earthDistance * 8, 0, 0);
     plutoAxis.add(plutoMesh);
     solarSystem.add(plutoAxis);
     // << Stars >>

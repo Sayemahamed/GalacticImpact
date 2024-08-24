@@ -1,38 +1,24 @@
 import * as THREE from "three";
-interface TYPE{
-  distance:number
-  mesh:THREE.Mesh
-  size:number
-}
-function getInstanced({ distance, mesh, size }:TYPE) {
-  const numObjs = 500 + Math.floor(Math.random() * 500);
-  const instaMesh = new THREE.InstancedMesh(
-    mesh.geometry,
-    mesh.material,
-    numObjs
-  );
-  const matrix = new THREE.Matrix4();
-  for (let i = 0; i < numObjs; i += 1) {
-    const radius = distance + Math.random() * 0.1 - 0.05;
-    const angle = Math.random() * Math.PI * 2;
-    const x = Math.cos(angle) * radius;
-    const z = Math.sin(angle) * radius;
-    const position = new THREE.Vector3(x, 0, z);
-    const quaternion = new THREE.Quaternion();
-    quaternion.random();
-    const currentSize = size + Math.random() * 0.05 - 0.025;
-    const scale = new THREE.Vector3().setScalar(currentSize);
-    matrix.compose(position, quaternion, scale);
-    instaMesh.setMatrixAt(i, matrix);
-  }
+import { OBJLoader } from "three/examples/jsm/Addons.js";
+import { earthDistance } from "../../Math/Constants";
 
-  return instaMesh;
-}
-function getAsteroidBelt(objs: THREE.Mesh[]) {
+function getAsteroidBelt() {
   const group = new THREE.Group();
-  objs.forEach((obj) => {
-    const asteroids = getInstanced({ distance: 35, mesh: obj, size: 0.035 });
-    group.add(asteroids);
+  const loader = new OBJLoader();
+  ["Rock1.obj", "Rock2.obj", "Rock3.obj"].forEach((path) => {
+    loader.load(path, (obj) => {
+      const distance = earthDistance * 2.3;
+      for (let i = 0; i < 500; i++) {
+        const radius = distance + Math.random() * 16 - 0.05;
+        const angle = Math.random() * Math.PI * 2;
+        const x = Math.cos(angle) * radius;
+        const z = Math.sin(angle) * radius;
+        obj.scale.setScalar(Math.random() * 0.3);
+        const mesh = obj;
+        mesh.position.set(x, 0, z);
+        group.add(mesh.clone());
+      }
+    });
   });
   return group;
 }
