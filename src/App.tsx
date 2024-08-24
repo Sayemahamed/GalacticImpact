@@ -14,7 +14,7 @@ import uranusMesh from "./assets/models/uranus/uranus";
 import neptuneMesh from "./assets/models/neptune/neptune";
 import plutoMesh from "./assets/models/pluto/pluto";
 import getStarfield from "./assets/models/stars/stars";
-import { earthDistance } from "./assets/Math/Constants";
+import { earthCirculation, earthDistance } from "./assets/Math/Constants";
 function App() {
   useEffect(() => {
     const scene = new THREE.Scene();
@@ -104,6 +104,15 @@ function App() {
     scene.add(stars);
     scene.add(solarSystem);
     function animate() {
+      mercuryAxis.rotation.y += earthCirculation/0.2;
+      venusAxis.rotation.y += earthCirculation/0.6;
+      earthAxis.rotation.y += earthCirculation;
+      marsAxis.rotation.y += earthCirculation/1.9;
+      jupiterAxis.rotation.y += earthCirculation/11.9;
+      saturnAxis.rotation.y += earthCirculation/29.5;
+      uranusAxis.rotation.y += earthCirculation/84;
+      neptuneAxis.rotation.y += earthCirculation/164.8;
+      plutoAxis.rotation.y += earthCirculation;
       // earth.update();
       // earthAxis.rotation.y += 0.002;
       sun.update();
