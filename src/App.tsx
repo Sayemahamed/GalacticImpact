@@ -17,6 +17,7 @@ import getStarfield from "./assets/models/stars/stars";
 import { earthCirculation, earthDistance } from "./assets/Math/Constants";
 function App() {
   useEffect(() => {
+    let observationObject: THREE.Object3D = sun.sun;
     const scene = new THREE.Scene();
     const camera = new THREE.PerspectiveCamera(
       75,
@@ -24,6 +25,7 @@ function App() {
       0.1,
       1000
     );
+    const position = new THREE.Vector3();
     camera.position.z = earthDistance * 3;
     const renderer = new THREE.WebGLRenderer({
       antialias: true,
@@ -124,8 +126,14 @@ function App() {
       neptune.update();
       pluto.update();
       sun.update();
+      updateCameraProspective();
       stars.rotateY(0.00002);
       renderer.render(scene, camera);
+    }
+    function updateCameraProspective() {
+      observationObject.getWorldPosition(position);
+      control.target.set(position.x, position.y, position.z);
+      control.update();
     }
     function handleWindowResize() {
       camera.aspect = window.innerWidth / window.innerHeight;
@@ -151,14 +159,9 @@ function App() {
 
       if (intersects.length > 0) {
         // An object was clicked
-        const intersectedObject = intersects[0].point;
-        const x = intersectedObject.x;
-        const y = intersectedObject.y;
-        const z = intersectedObject.z;
-        console.log(intersectedObject);
-        // Update camera to look at the intersected object
-        control.target.set(x, y, z);
-        // Add your custom logic here
+        const intersectedObject = intersects[0].object;
+        observationObject = intersectedObject;
+        console.log(position); // Logs the position in the console
       }
     }
   }, []);
