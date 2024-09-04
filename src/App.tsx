@@ -34,7 +34,7 @@ function App() {
     window.addEventListener("resize", handleWindowResize, false);
     renderer.outputColorSpace = THREE.LinearSRGBColorSpace;
     renderer.toneMapping = THREE.ACESFilmicToneMapping;
-    new OrbitControls(camera, renderer.domElement);
+    const control = new OrbitControls(camera, renderer.domElement);
     // <-- Add Elements -->
     //<< Solar System >>
     const solarSystem = new THREE.Group();
@@ -113,7 +113,7 @@ function App() {
       uranusAxis.rotation.y += earthCirculation / 84;
       neptuneAxis.rotation.y += earthCirculation / 164.8;
       plutoAxis.rotation.y += earthCirculation / 248;
-      astroidBelt1.rotation.y -= earthCirculation / 2;
+      astroidBelt1.rotation.y -= earthCirculation / 4;
       mercury.update();
       venus.update();
       earth.update();
@@ -151,8 +151,13 @@ function App() {
 
       if (intersects.length > 0) {
         // An object was clicked
-        const clickedObject = intersects[0].object;
-        console.log("Clicked object:", clickedObject);
+        const intersectedObject = intersects[0].point;
+        const x = intersectedObject.x;
+        const y = intersectedObject.y;
+        const z = intersectedObject.z;
+        console.log(intersectedObject);
+        // Update camera to look at the intersected object
+        control.target.set(x, y, z);
         // Add your custom logic here
       }
     }
