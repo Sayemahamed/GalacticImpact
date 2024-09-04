@@ -6,8 +6,8 @@ function getAsteroidBelt(distance: number) {
   const loader = new OBJLoader();
   ["Rock1.obj", "Rock2.obj", "Rock3.obj"].forEach((path) => {
     loader.load(path, (obj) => {
-      for (let i = 0; i < 400; i++) {
-        const radius = distance + Math.random() * 25 - 0.05;
+      for (let i = 0; i < 100; i++) {
+        const radius = distance + Math.random() * 15 - 0.05;
         const angle = Math.random() * Math.PI * 2;
         const x = Math.cos(angle) * radius;
         const z = Math.sin(angle) * radius;
