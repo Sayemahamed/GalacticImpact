@@ -67,7 +67,7 @@ function App() {
     marsAxis.rotateY(2 * Math.PI * 0.6);
     solarSystem.add(marsAxis);
     //<< astroid belt >>
-    const astroidBelt1 = getAsteroidBelt(earthDistance * 2.3);
+    const astroidBelt1 = getAsteroidBelt(earthDistance * 2.3, 100, 0.2);
     solarSystem.add(astroidBelt1);
     // << Jupiter >>
     const jupiterAxis = new THREE.Group();
@@ -106,7 +106,7 @@ function App() {
     scene.add(stars);
     scene.add(solarSystem);
     function animate() {
-      mercuryAxis.rotation.y += earthCirculation / 0.2;
+      mercuryAxis.rotation.y -= earthCirculation / 0.2;
       venusAxis.rotation.y += earthCirculation / 0.6;
       earthAxis.rotation.y += earthCirculation;
       marsAxis.rotation.y += earthCirculation / 1.9;
@@ -160,7 +160,9 @@ function App() {
       if (intersects.length > 0) {
         // An object was clicked
         const intersectedObject = intersects[0].object;
-        observationObject = intersectedObject;
+        if (observationObject != intersectedObject) {
+          observationObject = intersectedObject;
+        }
         console.log(position); // Logs the position in the console
       }
     }
