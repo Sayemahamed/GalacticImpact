@@ -16,7 +16,6 @@ import pluto from "./assets/models/pluto/pluto";
 import getStarfield from "./assets/models/stars/stars";
 import { earthCirculation, earthDistance } from "./assets/Math/Constants";
 
-
 function App() {
   useEffect(() => {
     let observationObject: THREE.Object3D = sun.sun;
@@ -81,7 +80,7 @@ function App() {
     const saturnAxis = new THREE.Group();
     saturn.saturnMesh.position.set(earthDistance * 4.5, 0, 0);
     saturnAxis.add(saturn.saturnMesh);
-    saturnAxis.rotateY(2 * Math.PI * 0.8);
+    saturnAxis.rotateY(2 * Math.PI * 1.1);
     solarSystem.add(saturnAxis);
     // << Uranus >>
     const uranusAxis = new THREE.Group();
