@@ -15,6 +15,8 @@ import neptune from "./assets/models/neptune/neptune";
 import pluto from "./assets/models/pluto/pluto";
 import getStarfield from "./assets/models/stars/stars";
 import { earthCirculation, earthDistance } from "./assets/Math/Constants";
+
+
 function App() {
   useEffect(() => {
     let observationObject: THREE.Object3D = sun.sun;
