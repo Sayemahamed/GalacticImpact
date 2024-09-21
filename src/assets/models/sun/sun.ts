@@ -1,5 +1,6 @@
 import * as THREE from "three";
 import sunMap from "./sun.jpg";
+import { getFresnelMat } from "./getFresnelMat";
 import { earthRotation, sunSize } from "../../Math/Constants";
 //@ts-ignore
 import FakeGlowMaterial from "./FakeGlowMaterial.js";
@@ -16,13 +17,18 @@ const material = new THREE.MeshPhongMaterial({
 
 //lights
 
-const sunMesh = new THREE.PointLight(0xffffff, 6, 500, 0.05);
+const sunMesh = new THREE.PointLight(0xffffff, 7, 500, 0.05);
 sunMesh.add(new THREE.Mesh(geometry, material));
-const fakeGlowMaterial = new FakeGlowMaterial({ glowColor: 0xffffff });
+const fresnelMat = getFresnelMat();
+const glowMesh = new THREE.Mesh(geometry, fresnelMat);
+glowMesh.scale.setScalar(1.005);
+const fakeGlowMaterial = new FakeGlowMaterial({ glowColor: 0xffe7cc });
 const radiationMesh = new THREE.Mesh(geometry, fakeGlowMaterial);
 const sun = new THREE.Group();
 radiationMesh.scale.setScalar(2);
 sun.add(sunMesh);
+// radiationMesh.
+sun.add(glowMesh);
 sun.add(radiationMesh);
 const update = () => {
   sun.rotation.y += earthRotation * (24 / 25);

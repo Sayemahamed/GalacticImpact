@@ -1,10 +1,17 @@
 /**
  * FakeGlow material by Anderson Mancini - Fec 2024.
  */
-import { ShaderMaterial, Uniform, Color, AdditiveBlending, FrontSide, BackSide, DoubleSide } from 'three';
+import {
+  ShaderMaterial,
+  Uniform,
+  Color,
+  AdditiveBlending,
+  FrontSide,
+  BackSide,
+  DoubleSide,
+} from "three";
 
 class FakeGlowMaterial extends ShaderMaterial {
-
   /**
    * Create a FakeGlowMaterial.
    *
@@ -21,7 +28,8 @@ class FakeGlowMaterial extends ShaderMaterial {
   constructor(parameters = {}) {
     super();
 
-    this.vertexShader = /*GLSL */
+    this.vertexShader =
+      /*GLSL */
       `
       varying vec3 vPosition;
       varying vec3 vNormal;
@@ -34,9 +42,10 @@ class FakeGlowMaterial extends ShaderMaterial {
         vNormal = modelNormal.xyz;
 
       }
-    `
+    `;
 
-    this.fragmentShader = /*GLSL */
+    this.fragmentShader =
+      /*GLSL */
       `
       uniform vec3 glowColor;
       uniform float falloff;
@@ -65,56 +74,70 @@ class FakeGlowMaterial extends ShaderMaterial {
         #include <tonemapping_fragment>
         #include <colorspace_fragment>
       } 
-      `
+      `;
 
     // Set default values or modify existing properties if needed
     this.uniforms = {
-
       /**
        * The opacity for the glow effect.
        * @type {Uniform<number>}
        * @default 1.0
        */
-      opacity: new Uniform(parameters.opacity !== undefined ? parameters.opacity : 1.0),
+      opacity: new Uniform(
+        parameters.opacity !== undefined ? parameters.opacity : 0.2
+      ),
 
       /**
        * The strength of the glowInternalRadius.
        * @type {Uniform<number>}
        * @default 6.0
        */
-      glowInternalRadius: new Uniform(parameters.glowInternalRadius !== undefined ? parameters.glowInternalRadius : 6.0),
+      glowInternalRadius: new Uniform(
+        parameters.glowInternalRadius !== undefined
+          ? parameters.glowInternalRadius
+          : 6.0
+      ),
 
       /**
        * The glowSharpness.
        * @type {Uniform<number>}
        * @default 0.5
        */
-      glowSharpness: new Uniform(parameters.glowSharpness !== undefined ? parameters.glowSharpness : 0.5),
+      glowSharpness: new Uniform(
+        parameters.glowSharpness !== undefined ? parameters.glowSharpness : 1
+      ),
 
       /**
        * The falloff.
        * @type {Uniform<number>}
        * @default 0.1
        */
-      falloff: new Uniform(parameters.falloff !== undefined ? parameters.falloff : 0.1),
+      falloff: new Uniform(
+        parameters.falloff !== undefined ? parameters.falloff : 0.3
+      ),
 
       /**
        * The color of the glow.
        * @type {Uniform<Color>}
        * @default new Color(#00d5ff)
        */
-      glowColor: new Uniform(parameters.glowColor !== undefined ? new Color(parameters.glowColor) : new Color("#00d5ff")),
-
+      glowColor: new Uniform(
+        parameters.glowColor !== undefined
+          ? new Color(parameters.glowColor)
+          : new Color("#00d5ff")
+      ),
     };
 
     this.setValues(parameters);
-    this.depthTest = parameters.depthTest !== undefined ? parameters.depthTest : false;
-    this.blending = parameters.blendMode !== undefined ? parameters.blendMode : AdditiveBlending;
+    this.depthTest =
+      parameters.depthTest !== undefined ? parameters.depthTest : false;
+    this.blending =
+      parameters.blendMode !== undefined
+        ? parameters.blendMode
+        : AdditiveBlending;
     this.transparent = true;
     this.side = parameters.side !== undefined ? parameters.side : DoubleSide;
-
   }
-
 }
 
 export default FakeGlowMaterial;
