@@ -1,4 +1,4 @@
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import * as THREE from "three";
 import { OrbitControls } from "three/examples/jsm/Addons.js";
 import sun from "./assets/models/sun/sun";
@@ -17,6 +17,19 @@ import getStarfield from "./assets/models/stars/stars";
 import { earthCirculation, earthDistance } from "./assets/Math/Constants";
 
 function App() {
+  const observationEntities = [
+    "Sun",
+    "Mercury",
+    "Venus",
+    "Earth",
+    "Mars",
+    "Jupiter",
+    "Saturn",
+    "Uranus",
+    "Neptune",
+    "Pluto",
+  ];
+  const [ID, setID] = useState<number>(0);
   useEffect(() => {
     let observationObject: THREE.Object3D = sun.sun;
     const scene = new THREE.Scene();
@@ -169,8 +182,54 @@ function App() {
     }
   }, []);
   return (
-    <div className="absolute w-full h-full ">
-      <div className="text-white ">damn</div>
+    <div className="absolute bg-transparent w-full h-full">
+      <div className="bg-transparent w-full h-12 p-3 grid justify-start md:justify-center ">
+        <div className="flex space-x-4 justify-center items-center">
+          <button
+            className="flex items-center justify-center shrink-0  w-10 h-10 rounded-full hover:color-white"
+            onClick={() =>
+              setID((x) => {
+                if (x > 0) return x - 1;
+                else return observationEntities.length - 1;
+              })
+            }
+          >
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              className="w-3 fill-gray-400"
+              viewBox="0 0 55.753 55.753"
+            >
+              <path
+                d="M12.745 23.915c.283-.282.59-.52.913-.727L35.266 1.581a5.4 5.4 0 0 1 7.637 7.638L24.294 27.828l18.705 18.706a5.4 5.4 0 0 1-7.636 7.637L13.658 32.464a5.367 5.367 0 0 1-.913-.727 5.367 5.367 0 0 1-1.572-3.911 5.369 5.369 0 0 1 1.572-3.911z"
+                data-original="#000000"
+              />
+            </svg>
+          </button>
+          <span className="text-xl w-16 text-center text-white font-bold">
+            {observationEntities[ID]}
+          </span>
+          <button
+            className="flex items-center justify-center shrink-0 ml-2  w-10 h-10 rounded-full hover:color-white"
+            onClick={() =>
+              setID((x) => {
+                if (x < observationEntities.length - 1) return x + 1;
+                else return 0;
+              })
+            }
+          >
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              className="w-3 fill-gray-400 rotate-180"
+              viewBox="0 0 55.753 55.753"
+            >
+              <path
+                d="M12.745 23.915c.283-.282.59-.52.913-.727L35.266 1.581a5.4 5.4 0 0 1 7.637 7.638L24.294 27.828l18.705 18.706a5.4 5.4 0 0 1-7.636 7.637L13.658 32.464a5.367 5.367 0 0 1-.913-.727 5.367 5.367 0 0 1-1.572-3.911 5.369 5.369 0 0 1 1.572-3.911z"
+                data-original="#000000"
+              />
+            </svg>
+          </button>
+        </div>
+      </div>
     </div>
   );
 }
