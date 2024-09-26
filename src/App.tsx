@@ -168,7 +168,11 @@ function App() {
       }
     }
   }, []);
-  return <></>;
+  return (
+    <div className="absolute w-full h-full ">
+      <div className="text-white ">damn</div>
+    </div>
+  );
 }
 
 export default App;
