@@ -31,7 +31,7 @@ function App() {
   ];
   const [ID, setID] = useState<number>(0);
   useEffect(() => {
-    let observationObject: THREE.Object3D = sun.sun;
+    let objectId = 0;
     const scene = new THREE.Scene();
     const camera = new THREE.PerspectiveCamera(
       75,
@@ -145,7 +145,16 @@ function App() {
       renderer.render(scene, camera);
     }
     function updateCameraProspective() {
-      observationObject.getWorldPosition(position);
+      if (objectId == 0) sun.sun.getWorldPosition(position);
+      else if (objectId == 1) mercury.mercuryMesh.getWorldPosition(position);
+      else if (objectId == 2) venus.venusMesh.getWorldPosition(position);
+      else if (objectId == 3) earth.earthGroup.getWorldPosition(position);
+      else if (objectId == 4) mars.marsMesh.getWorldPosition(position);
+      else if (objectId == 5) jupiter.jupiterMesh.getWorldPosition(position);
+      else if (objectId == 6) saturn.saturnMesh.getWorldPosition(position);
+      else if (objectId == 7) uranus.uranusMesh.getWorldPosition(position);
+      else if (objectId == 8) neptune.neptuneMesh.getWorldPosition(position);
+      else if (objectId == 9) pluto.plutoMesh.getWorldPosition(position);
       control.target.set(position.x, position.y, position.z);
       control.update();
     }
@@ -159,7 +168,20 @@ function App() {
 
     // Listen for mouse clicks
     window.addEventListener("click", onMouseClick);
-
+    const updateObjectId = (value: number) => {
+      objectId = value;
+      if (objectId < 0) objectId = 0;
+      else if (objectId > observationEntities.length - 1)
+        objectId = observationEntities.length - 1;
+      setID(objectId);
+      console.log(objectId);
+    };
+    document
+      .getElementById("increment")
+      ?.addEventListener("click", () => updateObjectId(objectId + 1));
+    document
+      .getElementById("decrement")
+      ?.addEventListener("click", () => updateObjectId(objectId - 1));
     function onMouseClick(event: MouseEvent) {
       // Calculate normalized device coordinates
       mouse.x = (event.clientX / window.innerWidth) * 2 - 1;
@@ -174,17 +196,27 @@ function App() {
       if (intersects.length > 0) {
         // An object was clicked
         const intersectedObject = intersects[0].object;
-        if (intersectedObject == mercury.mercuryMesh) setID(1);
-        else if (intersectedObject == venus.venusMesh) setID(2);
-        else if (intersectedObject == earth.earthGroup) setID(3);
-        else if (intersectedObject == mars.marsMesh) setID(4);
-        else if (intersectedObject == jupiter.jupiterMesh) setID(5);
-        else if (intersectedObject == saturn.saturnMesh) setID(6);
-        else if (intersectedObject == uranus.uranusMesh) setID(7);
-        else if (intersectedObject == neptune.neptuneMesh) setID(8);
-        else if (intersectedObject == pluto.plutoMesh) setID(9);
-        else setID(0);
-        console.log(position); // Logs the position in the console
+        if (intersectedObject == mercury.mercuryMesh) {
+          updateObjectId(1);
+        } else if (intersectedObject == venus.venusMesh) {
+          updateObjectId(2);
+        } else if (intersectedObject == earth.earthGroup) {
+          updateObjectId(3);
+        } else if (intersectedObject == mars.marsMesh) {
+          updateObjectId(4);
+        } else if (intersectedObject == jupiter.jupiterMesh) {
+          updateObjectId(5);
+        } else if (intersectedObject == saturn.saturnMesh) {
+          updateObjectId(6);
+        } else if (intersectedObject == uranus.uranusMesh) {
+          updateObjectId(7);
+        } else if (intersectedObject == neptune.neptuneMesh) {
+          updateObjectId(8);
+        } else if (intersectedObject == pluto.plutoMesh) {
+          updateObjectId(9);
+        } else {
+          updateObjectId(0);
+        }
       }
     }
   }, []);
@@ -193,12 +225,7 @@ function App() {
       <div className="flex space-x-4 justify-center items-center">
         <button
           className="flex items-center justify-center shrink-0  w-10 h-10 rounded-full hover:color-white"
-          onClick={() =>
-            setID((x) => {
-              if (x > 0) return x - 1;
-              else return observationEntities.length - 1;
-            })
-          }
+          id="increment"
         >
           <svg
             xmlns="http://www.w3.org/2000/svg"
@@ -216,12 +243,7 @@ function App() {
         </span>
         <button
           className="flex items-center justify-center shrink-0 ml-2  w-10 h-10 rounded-full hover:color-white"
-          onClick={() =>
-            setID((x) => {
-              if (x < observationEntities.length - 1) return x + 1;
-              else return 0;
-            })
-          }
+          id="decrement"
         >
           <svg
             xmlns="http://www.w3.org/2000/svg"
