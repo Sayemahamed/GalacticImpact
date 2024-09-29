@@ -70,5 +70,77 @@
     "gravity": "11.15 m/s²",
     "orbital_period": "165 years",
     "mean_temperature": "-200°C"
+  },
+  {
+    "name": "Mercury",
+    "position": 1,
+    "mass": "3.3011e23 kg",
+    "diameter": "4879.4 km",
+    "gravity": "3.7 m/s²",
+    "orbital_period": "88 days",
+    "mean_temperature": "167°C"
+  },
+  {
+    "name": "Venus",
+    "position": 2,
+    "mass": "4.8675e24 kg",
+    "diameter": "12104 km",
+    "gravity": "8.87 m/s²",
+    "orbital_period": "225 days",
+    "mean_temperature": "464°C"
+  },
+  {
+    "name": "Earth",
+    "position": 3,
+    "mass": "5.97237e24 kg",
+    "diameter": "12742 km",
+    "gravity": "9.807 m/s²",
+    "orbital_period": "365.25 days",
+    "mean_temperature": "15°C"
+  },
+  {
+    "name": "Mars",
+    "position": 4,
+    "mass": "6.4171e23 kg",
+    "diameter": "6779 km",
+    "gravity": "3.721 m/s²",
+    "orbital_period": "687 days",
+    "mean_temperature": "-65°C"
+  },
+  {
+    "name": "Jupiter",
+    "position": 5,
+    "mass": "1.8982e27 kg",
+    "diameter": "139820 km",
+    "gravity": "24.79 m/s²",
+    "orbital_period": "12 years",
+    "mean_temperature": "-110°C"
+  },
+  {
+    "name": "Saturn",
+    "position": 6,
+    "mass": "5.6834e26 kg",
+    "diameter": "116460 km",
+    "gravity": "10.44 m/s²",
+    "orbital_period": "29 years",
+    "mean_temperature": "-140°C"
+  },
+  {
+    "name": "Uranus",
+    "position": 7,
+    "mass": "8.6810e25 kg",
+    "diameter": "50724 km",
+    "gravity": "8.69 m/s²",
+    "orbital_period": "84 years",
+    "mean_temperature": "-195°C"
+  },
+  {
+    "name": "Neptune",
+    "position": 8,
+    "mass": "1.02413e26 kg",
+    "diameter": "49244 km",
+    "gravity": "11.15 m/s²",
+    "orbital_period": "165 years",
+    "mean_temperature": "-200°C"
   }
 ]
