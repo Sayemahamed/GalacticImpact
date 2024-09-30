@@ -1,75 +1,21 @@
 [
   {
-    "name": "Mercury",
-    "position": 1,
-    "mass": "3.3011e23 kg",
-    "diameter": "4879.4 km",
-    "gravity": "3.7 m/s²",
-    "orbital_period": "88 days",
-    "mean_temperature": "167°C"
+    "name": "Sun",
+    "type": "Star",
+    "mass": "1.989e30 kg",
+    "diameter": "1,392,700 km",
+    "gravity": "274 m/s²",
+    "mean_temperature": "5,500°C",
+    "luminosity": "3.828e26 W"
   },
   {
-    "name": "Venus",
-    "position": 2,
-    "mass": "4.8675e24 kg",
-    "diameter": "12104 km",
-    "gravity": "8.87 m/s²",
-    "orbital_period": "225 days",
-    "mean_temperature": "464°C"
-  },
-  {
-    "name": "Earth",
-    "position": 3,
-    "mass": "5.97237e24 kg",
-    "diameter": "12742 km",
-    "gravity": "9.807 m/s²",
-    "orbital_period": "365.25 days",
-    "mean_temperature": "15°C"
-  },
-  {
-    "name": "Mars",
-    "position": 4,
-    "mass": "6.4171e23 kg",
-    "diameter": "6779 km",
-    "gravity": "3.721 m/s²",
-    "orbital_period": "687 days",
-    "mean_temperature": "-65°C"
-  },
-  {
-    "name": "Jupiter",
-    "position": 5,
-    "mass": "1.8982e27 kg",
-    "diameter": "139820 km",
-    "gravity": "24.79 m/s²",
-    "orbital_period": "12 years",
-    "mean_temperature": "-110°C"
-  },
-  {
-    "name": "Saturn",
-    "position": 6,
-    "mass": "5.6834e26 kg",
-    "diameter": "116460 km",
-    "gravity": "10.44 m/s²",
-    "orbital_period": "29 years",
-    "mean_temperature": "-140°C"
-  },
-  {
-    "name": "Uranus",
-    "position": 7,
-    "mass": "8.6810e25 kg",
-    "diameter": "50724 km",
-    "gravity": "8.69 m/s²",
-    "orbital_period": "84 years",
-    "mean_temperature": "-195°C"
-  },
-  {
-    "name": "Neptune",
-    "position": 8,
-    "mass": "1.02413e26 kg",
-    "diameter": "49244 km",
-    "gravity": "11.15 m/s²",
-    "orbital_period": "165 years",
-    "mean_temperature": "-200°C"
+    "name": "Moon",
+    "type": "Natural Satellite",
+    "mass": "7.342e22 kg",
+    "diameter": "3,474.8 km",
+    "gravity": "1.62 m/s²",
+    "orbital_period": "27.3 days",
+    "mean_temperature": "-53°C"
   },
   {
     "name": "Mercury",
@@ -142,5 +88,95 @@
     "gravity": "11.15 m/s²",
     "orbital_period": "165 years",
     "mean_temperature": "-200°C"
+  },
+  {
+    "Name": "2007 FT3",
+    "Size": "340 meters",
+    "CloseApproachDate": "2024-10-03",
+    "ChanceOfImpact": "1 in 11 million"
+  },
+  {
+    "Name": "2011 MD",
+    "Size": "6 meters",
+    "CloseApproachDate": "2024-10-08",
+    "ChanceOfImpact": "Very low"
+  },
+  {
+    "Name": "2022 YO1",
+    "Size": "3 meters",
+    "CloseApproachDate": "2024-12-17",
+    "ChanceOfImpact": "1 in 430"
+  },
+  {
+    "Name": "Apophis",
+    "Size": "370 meters",
+    "CloseApproachDate": "2029-04-13",
+    "ChanceOfImpact": "Ruled out for 2029, but will come very close"
+  },
+  {
+    "Name": "2005 ED224",
+    "Size": "50 meters",
+    "CloseApproachDate": "2023-03-11",
+    "ChanceOfImpact": "1 in 500,000"
+  },
+  {
+    "Name": "2010 RF12",
+    "Size": "7 meters",
+    "CloseApproachDate": "2025-09-05",
+    "ChanceOfImpact": "1 in 16"
+  },
+  {
+    "Name": "2012 HG2",
+    "Size": "14 meters",
+    "CloseApproachDate": "2028-04-12",
+    "ChanceOfImpact": "1 in 1,000"
+  },
+  {
+    "Name": "2014 JO25",
+    "Size": "650 meters",
+    "CloseApproachDate": "2027-04-29",
+    "ChanceOfImpact": "Very low"
+  },
+  {
+    "Name": "2018 VP1",
+    "Size": "2 meters",
+    "CloseApproachDate": "2025-11-02",
+    "ChanceOfImpact": "1 in 240"
+  },
+  {
+    "Name": "2020 QG",
+    "Size": "3 meters",
+    "CloseApproachDate": "2026-08-16",
+    "ChanceOfImpact": "Very low"
+  },
+  {
+    "Name": "2021 PDC",
+    "Size": "140 meters",
+    "CloseApproachDate": "2029-04-29",
+    "ChanceOfImpact": "1 in 500"
+  },
+  {
+    "Name": "2022 AE1",
+    "Size": "70 meters",
+    "CloseApproachDate": "2027-07-04",
+    "ChanceOfImpact": "1 in 1,700"
+  },
+  {
+    "Name": "2023 DW",
+    "Size": "50 meters",
+    "CloseApproachDate": "2026-02-14",
+    "ChanceOfImpact": "1 in 560"
+  },
+  {
+    "Name": "2024 BP",
+    "Size": "20 meters",
+    "CloseApproachDate": "2029-01-19",
+    "ChanceOfImpact": "1 in 1,200"
+  },
+  {
+    "Name": "2025 FV",
+    "Size": "10 meters",
+    "CloseApproachDate": "2028-03-22",
+    "ChanceOfImpact": "1 in 2,300"
   }
 ]
