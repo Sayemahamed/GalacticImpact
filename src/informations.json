@@ -10,6 +10,7 @@
   },
   {
     "Name": "Mercury",
+    "Type": "Planet",
     "Position": 1,
     "Mass": "3.3011e23 kg",
     "Diameter": "4879.4 km",
@@ -19,6 +20,7 @@
   },
   {
     "Name": "Venus",
+    "Type": "Planet",
     "Position": 2,
     "Mass": "4.8675e24 kg",
     "Diameter": "12104 km",
@@ -28,6 +30,7 @@
   },
   {
     "Name": "Earth",
+    "Type": "Planet",
     "Position": 3,
     "Mass": "5.97237e24 kg",
     "Diameter": "12742 km",
@@ -46,6 +49,7 @@
   },
   {
     "Name": "Mars",
+    "Type": "Planet",
     "Position": 4,
     "Mass": "6.4171e23 kg",
     "Diameter": "6779 km",
@@ -55,6 +59,7 @@
   },
   {
     "Name": "Jupiter",
+    "Type": "Planet",
     "Position": 5,
     "Mass": "1.8982e27 kg",
     "Diameter": "139820 km",
@@ -64,6 +69,7 @@
   },
   {
     "Name": "Saturn",
+    "Type": "Planet",
     "Position": 6,
     "Mass": "5.6834e26 kg",
     "Diameter": "116460 km",
@@ -73,6 +79,7 @@
   },
   {
     "Name": "Uranus",
+    "Type": "Planet",
     "Position": 7,
     "Mass": "8.6810e25 kg",
     "Diameter": "50724 km",
@@ -82,6 +89,7 @@
   },
   {
     "Name": "Neptune",
+    "Type": "Planet",
     "Position": 8,
     "Mass": "1.02413e26 kg",
     "Diameter": "49244 km",
@@ -91,6 +99,7 @@
   },
   {
     "Name": "Pluto",
+    "Type": "Dwarf Planet",
     "Position": 9,
     "Mass": "1.303e22 kg",
     "Diameter": "2376.6 km",
@@ -100,90 +109,105 @@
   },
   {
     "Name": "2007 FT3",
+    "Type": "Astroid",
     "Size": "340 meters",
     "CloseApproachDate": "2024-10-03",
     "ChanceOfImpact": "1 in 11 million"
   },
   {
     "Name": "2011 MD",
+    "Type": "Astroid",
     "Size": "6 meters",
     "CloseApproachDate": "2024-10-08",
     "ChanceOfImpact": "Very low"
   },
   {
     "Name": "2022 YO1",
+    "Type": "Astroid",
     "Size": "3 meters",
     "CloseApproachDate": "2024-12-17",
     "ChanceOfImpact": "1 in 430"
   },
   {
     "Name": "Apophis",
+    "Type": "Astroid",
     "Size": "370 meters",
     "CloseApproachDate": "2029-04-13",
     "ChanceOfImpact": "Ruled out for 2029, but will come very close"
   },
   {
     "Name": "2005 ED224",
+    "Type": "Astroid",
     "Size": "50 meters",
     "CloseApproachDate": "2023-03-11",
     "ChanceOfImpact": "1 in 500,000"
   },
   {
     "Name": "2010 RF12",
+    "Type": "Astroid",
     "Size": "7 meters",
     "CloseApproachDate": "2025-09-05",
     "ChanceOfImpact": "1 in 16"
   },
   {
     "Name": "2012 HG2",
+    "Type": "Astroid",
     "Size": "14 meters",
     "CloseApproachDate": "2028-04-12",
     "ChanceOfImpact": "1 in 1,000"
   },
   {
     "Name": "2014 JO25",
+    "Type": "Astroid",
     "Size": "650 meters",
     "CloseApproachDate": "2027-04-29",
     "ChanceOfImpact": "Very low"
   },
   {
     "Name": "2018 VP1",
+    "Type": "Astroid",
     "Size": "2 meters",
     "CloseApproachDate": "2025-11-02",
     "ChanceOfImpact": "1 in 240"
   },
   {
     "Name": "2020 QG",
+    "Type": "Astroid",
     "Size": "3 meters",
     "CloseApproachDate": "2026-08-16",
     "ChanceOfImpact": "Very low"
   },
   {
     "Name": "2021 PDC",
+    "Type": "Astroid",
     "Size": "140 meters",
     "CloseApproachDate": "2029-04-29",
     "ChanceOfImpact": "1 in 500"
   },
   {
     "Name": "2022 AE1",
+    "Type": "Astroid",
     "Size": "70 meters",
     "CloseApproachDate": "2027-07-04",
     "ChanceOfImpact": "1 in 1,700"
   },
   {
     "Name": "2023 DW",
+    "Type": "Astroid",
     "Size": "50 meters",
     "CloseApproachDate": "2026-02-14",
     "ChanceOfImpact": "1 in 560"
   },
   {
     "Name": "2024 BP",
+    "Type": "Astroid",
     "Size": "20 meters",
     "CloseApproachDate": "2029-01-19",
     "ChanceOfImpact": "1 in 1,200"
   },
   {
     "Name": "2025 FV",
+    "Type": "Astroid",
     "Size": "10 meters",
     "CloseApproachDate": "2028-03-22",
     "ChanceOfImpact": "1 in 2,300"
