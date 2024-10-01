@@ -15,7 +15,7 @@ import neptune from "./assets/models/neptune/neptune";
 import pluto from "./assets/models/pluto/pluto";
 import getStarfield from "./assets/models/stars/stars";
 import { earthCirculation, earthDistance } from "./assets/Math/Constants";
-import information from "./informations.json";
+import information from "./Information.json";
 interface CelestialBody {
   Name: string;
   Type?: string;
