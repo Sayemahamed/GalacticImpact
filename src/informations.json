@@ -9,15 +9,6 @@
     "Luminosity": "3.828e26 W"
   },
   {
-    "Name": "Moon",
-    "Type": "Natural Satellite",
-    "Mass": "7.342e22 kg",
-    "Diameter": "3,474.8 km",
-    "Gravity": "1.62 m/s²",
-    "Orbital Period": "27.3 days",
-    "Mean Temperature": "-53°C"
-  },
-  {
     "Name": "Mercury",
     "Position": 1,
     "Mass": "3.3011e23 kg",
@@ -43,6 +34,15 @@
     "Gravity": "9.807 m/s²",
     "Orbital Period": "365.25 days",
     "Mean Temperature": "15°C"
+  },
+  {
+    "Name": "Moon",
+    "Type": "Natural Satellite",
+    "Mass": "7.342e22 kg",
+    "Diameter": "3,474.8 km",
+    "Gravity": "1.62 m/s²",
+    "Orbital Period": "27.3 days",
+    "Mean Temperature": "-53°C"
   },
   {
     "Name": "Mars",
@@ -88,6 +88,15 @@
     "Gravity": "11.15 m/s²",
     "Orbital Period": "165 years",
     "Mean Temperature": "-200°C"
+  },
+  {
+    "Name": "Pluto",
+    "Position": 9,
+    "Mass": "1.303e22 kg",
+    "Diameter": "2376.6 km",
+    "Gravity": "0.62 m/s²",
+    "Orbital Period": "248 years",
+    "Mean Temperature": "-229°C"
   },
   {
     "Name": "2007 FT3",

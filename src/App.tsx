@@ -15,8 +15,20 @@ import neptune from "./assets/models/neptune/neptune";
 import pluto from "./assets/models/pluto/pluto";
 import getStarfield from "./assets/models/stars/stars";
 import { earthCirculation, earthDistance } from "./assets/Math/Constants";
-import information from "../public/informations.json";
-import { div } from "three/webgpu";
+import information from "./informations.json";
+interface CelestialBody {
+  Name: string;
+  Type?: string;
+  Position?: number;
+  Mass?: string;
+  Diameter?: string;
+  Gravity?: string;
+  OrbitalPeriod?: string;
+  MeanTemperature?: string;
+  Size?: string;
+  CloseApproachDate?: string;
+  ChanceOfImpact?: string;
+}
 function App() {
   const observationEntities = [
     "Sun",
@@ -230,7 +242,7 @@ function App() {
   }, []);
   return (
     <>
-      <div className="bg-transparent w-full h-12 p-3 grid justify-start md:justify-center absolute select-none">
+      <div className="bg-transparent w-full h-12 p-3 grid justify-center absolute select-none">
         <div className="flex space-x-4 justify-center items-center">
           <button
             className="flex items-center justify-center shrink-0  w-10 h-10 rounded-full hover:color-white"
@@ -269,16 +281,15 @@ function App() {
       </div>
       <div>
         {information.map(
-          (info, index) =>
+          (info: CelestialBody, index) =>
             index === ID && (
-              <div className="absolute top-5 text-white right-0">
-                {Object.keys(info).map((key) => {
-                  return (
-                    <div>
-                      {key} : {info[key]}
-                    </div>
-                  );
-                })}
+              <div className="absolute top-5 text-white left-2">
+                {Object.keys(info).map((key, keyIndex) => (
+                  <div>
+                    <span className="font-bold">{key} : </span>
+                    {Object.values(info)[keyIndex]}
+                  </div>
+                ))}
               </div>
             )
         )}
