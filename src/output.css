@@ -558,20 +558,16 @@ video {
   position: absolute;
 }
 
-.left-2 {
-  left: 0.5rem;
+.left-4 {
+  left: 1rem;
 }
 
 .top-5 {
   top: 1.25rem;
 }
 
-.right-2 {
-  right: 0.5rem;
-}
-
-.left-4 {
-  left: 1rem;
+.z-50 {
+  z-index: 50;
 }
 
 .ml-2 {
@@ -645,11 +641,6 @@ video {
 
 .rounded-full {
   border-radius: 9999px;
-}
-
-.bg-red-600 {
-  --tw-bg-opacity: 1;
-  background-color: rgb(220 38 38 / var(--tw-bg-opacity));
 }
 
 .bg-transparent {

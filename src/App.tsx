@@ -242,7 +242,7 @@ function App() {
   }, []);
   return (
     <>
-      <div className="bg-transparent w-full h-12 p-3 grid justify-center absolute select-none">
+      <div className="bg-transparent w-full h-12 p-3 grid justify-center absolute select-none z-50">
         <div className="flex space-x-4 justify-center items-center">
           <button
             className="flex items-center justify-center shrink-0  w-10 h-10 rounded-full hover:color-white"
