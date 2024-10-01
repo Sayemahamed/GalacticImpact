@@ -279,11 +279,11 @@ function App() {
           </button>
         </div>
       </div>
-      <div>
+      <div className="select-none">
         {information.map(
           (info: CelestialBody, index) =>
             index === ID && (
-              <div className="absolute top-5 text-white left-2">
+              <div className="absolute top-5 text-white left-4 ">
                 {Object.keys(info).map((key, keyIndex) => (
                   <div>
                     <span className="font-bold">{key} : </span>
