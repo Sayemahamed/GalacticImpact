@@ -284,7 +284,7 @@ function App() {
       )}
       {!showNEOInfo && (
         <button
-          className="absolute top-5 w-32 z-50 text-white right-4 md:w-60 md:right-10"
+          className="absolute top-5 w-20 z-50 text-white right-4 md:w-60 md:right-10"
           onClick={() => setShowNEOInfo((x) => (x ? false : true))}
         >
           Learn About the Effects of NEOs
@@ -292,7 +292,7 @@ function App() {
       )}
       {showNEOInfo && (
         <button
-          className="absolute top-5 w-32 z-50 text-white right-4 md:w-60 md:right-10"
+          className="absolute top-5 w-20 z-50 text-white right-4 md:w-60 md:right-10"
           onClick={() => setShowNEOInfo((x) => (x ? false : true))}
         >
           Hide the Effects of NEOs
