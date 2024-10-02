@@ -45,9 +45,6 @@ function App() {
   ];
   const [ID, setID] = useState<number>(0);
   const [showNEOInfo, setShowNEOInfo] = useState<boolean>(false);
-  const addEvent=()=>{
-    
-  }
   useEffect(() => {
     let objectId = 0;
     const scene = new THREE.Scene();
