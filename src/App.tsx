@@ -44,6 +44,7 @@ function App() {
     "Pluto",
   ];
   const [ID, setID] = useState<number>(0);
+  const [showNEOInfo, setShowNEOInfo] = useState<boolean>(false);
   useEffect(() => {
     let objectId = 0;
     const scene = new THREE.Scene();
@@ -242,47 +243,66 @@ function App() {
   }, []);
   return (
     <>
-      <div className="bg-transparent w-full h-12 p-3 grid justify-center absolute select-none z-50">
-        <div className="flex space-x-4 justify-center items-center">
-          <button
-            className="flex items-center justify-center shrink-0  w-10 h-10 rounded-full hover:color-white"
-            id="decrement"
-          >
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              className="w-3 fill-gray-400"
-              viewBox="0 0 55.753 55.753"
+      {!showNEOInfo && (
+        <div className="bg-transparent w-full h-12 p-3 grid justify-center absolute select-none z-40">
+          <div className="flex space-x-4 justify-center items-center">
+            <button
+              className="flex items-center justify-center shrink-0  w-10 h-10 rounded-full hover:color-white"
+              id="decrement"
             >
-              <path
-                d="M12.745 23.915c.283-.282.59-.52.913-.727L35.266 1.581a5.4 5.4 0 0 1 7.637 7.638L24.294 27.828l18.705 18.706a5.4 5.4 0 0 1-7.636 7.637L13.658 32.464a5.367 5.367 0 0 1-.913-.727 5.367 5.367 0 0 1-1.572-3.911 5.369 5.369 0 0 1 1.572-3.911z"
-                data-original="#000000"
-              />
-            </svg>
-          </button>
-          <span className="text-xl w-16 text-center text-white font-bold">
-            {observationEntities[ID]}
-          </span>
-          <button
-            className="flex items-center justify-center shrink-0 ml-2  w-10 h-10 rounded-full hover:color-white"
-            id="increment"
-          >
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              className="w-3 fill-gray-400 rotate-180"
-              viewBox="0 0 55.753 55.753"
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                className="w-3 fill-gray-400"
+                viewBox="0 0 55.753 55.753"
+              >
+                <path
+                  d="M12.745 23.915c.283-.282.59-.52.913-.727L35.266 1.581a5.4 5.4 0 0 1 7.637 7.638L24.294 27.828l18.705 18.706a5.4 5.4 0 0 1-7.636 7.637L13.658 32.464a5.367 5.367 0 0 1-.913-.727 5.367 5.367 0 0 1-1.572-3.911 5.369 5.369 0 0 1 1.572-3.911z"
+                  data-original="#000000"
+                />
+              </svg>
+            </button>
+            <span className="text-xl w-16 text-center text-white font-bold">
+              {observationEntities[ID]}
+            </span>
+            <button
+              className="flex items-center justify-center shrink-0 ml-2  w-10 h-10 rounded-full hover:color-white"
+              id="increment"
             >
-              <path
-                d="M12.745 23.915c.283-.282.59-.52.913-.727L35.266 1.581a5.4 5.4 0 0 1 7.637 7.638L24.294 27.828l18.705 18.706a5.4 5.4 0 0 1-7.636 7.637L13.658 32.464a5.367 5.367 0 0 1-.913-.727 5.367 5.367 0 0 1-1.572-3.911 5.369 5.369 0 0 1 1.572-3.911z"
-                data-original="#000000"
-              />
-            </svg>
-          </button>
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                className="w-3 fill-gray-400 rotate-180"
+                viewBox="0 0 55.753 55.753"
+              >
+                <path
+                  d="M12.745 23.915c.283-.282.59-.52.913-.727L35.266 1.581a5.4 5.4 0 0 1 7.637 7.638L24.294 27.828l18.705 18.706a5.4 5.4 0 0 1-7.636 7.637L13.658 32.464a5.367 5.367 0 0 1-.913-.727 5.367 5.367 0 0 1-1.572-3.911 5.369 5.369 0 0 1 1.572-3.911z"
+                  data-original="#000000"
+                />
+              </svg>
+            </button>
+          </div>
         </div>
-      </div>
+      )}
+      {!showNEOInfo && (
+        <button
+          className="absolute top-5 w-32 z-50 text-white right-4 md:w-60 md:right-10"
+          onClick={() => setShowNEOInfo((x) => (x ? false : true))}
+        >
+          Learn About the Effects of NEOs
+        </button>
+      )}
+      {showNEOInfo && (
+        <button
+          className="absolute top-5 w-32 z-50 text-white right-4 md:w-60 md:right-10"
+          onClick={() => setShowNEOInfo((x) => (x ? false : true))}
+        >
+          Hide the Effects of NEOs
+        </button>
+      )}
       <div className="select-none">
         {information.map(
           (info: CelestialBody, index) =>
-            index === ID && (
+            index === ID &&
+            !showNEOInfo && (
               <div className="absolute top-5 text-white left-4 ">
                 {Object.keys(info).map((key, keyIndex) => (
                   <div>
@@ -294,6 +314,54 @@ function App() {
             )
         )}
       </div>
+      {showNEOInfo && (
+        <div className="container absolute top-20 text-white left-4 ">
+          <h2 className="font-bold text-xl">
+            Effects of Near-Earth Objects (NEOs)
+          </h2>
+          <p className="mb-4 mt-2">
+            The impact of Near-Earth Objects (NEOs) can have devastating effects
+            on Earth, both immediately following the event and in the long term.
+            Upon collision, the energy released can generate intense blast
+            winds, capable of flattening buildings and uprooting trees over vast
+            areas. Additionally, the immense heat produced can cause thermal
+            radiation, igniting forest fires that further contribute to
+            environmental degradation. This violent impact can also trigger
+            earthquakes, resulting in ground shaking and structural damage far
+            from the impact site. If the NEO strikes an ocean or large body of
+            water, it may generate tsunamis, creating massive waves that can
+            inundate coastal areas, destroying infrastructure and causing loss
+            of life.
+          </p>
+          <p className="mb-4 mt-2">
+            The immediate aftermath of an impact includes the ejection of debris
+            into the atmosphere, forming a plume that can spread ash and
+            particles over a wide geographic area. This fallout can lead to
+            coating and crop failure, as the debris contaminates agricultural
+            lands, potentially causing food shortages and famine. The dust
+            released can also become airborne, resulting in wind-blown dust that
+            poses respiratory hazards to both humans and animals. Furthermore,
+            rainfall can wash contaminants into rivers and lakes, leading to a
+            cascade of environmental issues.
+          </p>
+          <p>
+            In the long term, the effects of a NEO impact can reshape the
+            Earth's landscape. Riverbed uplift may occur due to geological
+            changes triggered by the impact, altering waterways and potentially
+            causing flooding from dam breaks or shifts in river courses. This
+            flooding can devastate communities and ecosystems, leading to
+            further habitat destruction. The aftermath can also result in
+            poisoned wildlife, as contaminants enter food chains, affecting
+            species health and biodiversity.
+          </p>
+          <p className="mb-4 mt-2">
+            Understanding these effects is essential for preparing for potential
+            NEO impacts. By studying the possible consequences of such events,
+            scientists and policymakers can develop strategies to mitigate
+            risks, protect ecosystems, and safeguard human populations.
+          </p>
+        </div>
+      )}
     </>
   );
 }
