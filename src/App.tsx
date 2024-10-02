@@ -315,7 +315,7 @@ function App() {
         )}
       </div>
       {showNEOInfo && (
-        <div className="container absolute top-20 text-white left-4 ">
+        <div className="select-none overflow-auto container absolute top-20 text-white left-4 h-3/4 ">
           <h2 className="font-bold text-xl">
             Effects of Near-Earth Objects (NEOs)
           </h2>
