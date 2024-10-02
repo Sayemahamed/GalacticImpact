@@ -45,6 +45,9 @@ function App() {
   ];
   const [ID, setID] = useState<number>(0);
   const [showNEOInfo, setShowNEOInfo] = useState<boolean>(false);
+  const addEvent=()=>{
+    
+  }
   useEffect(() => {
     let objectId = 0;
     const scene = new THREE.Scene();
@@ -243,7 +246,7 @@ function App() {
   }, []);
   return (
     <>
-      {!showNEOInfo && (
+      { (
         <div className="bg-transparent w-full h-12 p-3 grid justify-center absolute select-none z-40">
           <div className="flex space-x-4 justify-center items-center">
             <button
