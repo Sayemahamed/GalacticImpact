@@ -13,6 +13,7 @@ This web app, developed for the NASA Space Apps Challenge, allows users to explo
 
 - **Frontend**: React.js for UI and Three.js for 3D solar system and NEO visualizations
 - **Data Sources**: NASA's NEO database and other space-related APIs
+- **Simulation**: Simulation are made possible with [Unity](https://play.unity.com/en).
 - **Deployment**: Hosted on [Firebase](https://console.firebase.google.com/), with continuous updates
 
 ## How to Run
