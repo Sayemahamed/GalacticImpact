@@ -2,6 +2,8 @@
 
 This web app, developed for the NASA Space Apps Challenge, allows users to explore Near-Earth Objects (NEOs) within a dynamic solar system visualization. "GalacticImpactNeoVisualization" offers real-time data on NEOs and simulates their potential impacts on Earth. Leveraging NASA's data, the app provides a comprehensive and interactive view of NEOs and their interactions within the solar system.
 
+**Live Project**: [GalacticImpact](https://galacticimpactneovisualization.web.app/)
+
 ## Key Features
 
 - **Solar System Visualization**: Explore a fully interactive 3D representation of the solar system, complete with detailed NEO trajectories and planetary positions.
