@@ -14,8 +14,8 @@ To contribute to this project, follow these steps:
 
 2. **Clone the repository**: Clone the forked repository to your local machine using Git:
    ```bash
-   git clone https://github.com/your-username/repository-name.git
-   cd repository-name
+   git clone https://github.com/Sayemahamed/GalacticImpact.git
+   cd GalacticImpact
    ```
 
 3. **Install dependencies**: Make sure you have Node.js and npm installed on your machine. Install project dependencies by running:
